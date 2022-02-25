@@ -14,21 +14,21 @@ class ServiceSeeder extends Seeder
     public function run()
     {
 
-        factory(Service::class, 5) -> make() -> each(function ($service) {
-            // $services = config('apartment_services');
+        
+        $services = config('apartment_services');
 
-            // foreach ($services as $service) {
-            //     $newService = new Service;
+        foreach ($services as $service) {
+            $newService = new Service;
 
-            // $newService -> name = $service;
+            $newService -> name = $service;
 
             $apartment = Apartment::inRandomOrder() -> limit(rand(0, 3)) ->get();
             
+            $newService -> save();
             
-            $service -> apartments() -> attach($apartment);
+            $newService -> apartments() -> attach($apartment);
             
-            $service -> save();
-        });
+        }
         
     }
 }
