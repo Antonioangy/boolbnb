@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Sponsor;
+use App\Apartment;
 
 class SponsorSeeder extends Seeder
 {
@@ -21,7 +22,12 @@ class SponsorSeeder extends Seeder
             $newSponsor -> duration = $sponsor['duration'];
             $newSponsor -> price = $sponsor['price']; 
 
+            $apartment = Apartment::inRandomOrder() -> limit(rand(0, 3)) ->get();
+            
             $newSponsor -> save();
+            
+            $newSponsor -> apartments() -> attach($apartment);
+            
         }
     }
 }

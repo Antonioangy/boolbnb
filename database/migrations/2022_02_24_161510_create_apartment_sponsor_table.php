@@ -16,8 +16,8 @@ class CreateApartmentSponsorTable extends Migration
         Schema::create('apartment_sponsor', function (Blueprint $table) {
             $table->id();
 
-            $table->tinyInteger('level')->unsigned();
-            $table->date('end_date');
+            $table->tinyInteger('level')->unsigned()->nullable();
+            $table->date('end_date')->nullable();
 
             $table -> bigInteger('apartment_id') -> unsigned();
             $table -> bigInteger('sponsor_id') -> unsigned();
