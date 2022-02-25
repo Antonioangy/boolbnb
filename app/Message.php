@@ -11,4 +11,9 @@ class Message extends Model
         'text',
         'apartment_id',
     ];
+
+    public function apartment() {
+
+        return $this-> belongsTo(Apartment::class);
+    }
 }

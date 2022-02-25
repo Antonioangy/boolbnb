@@ -45,7 +45,7 @@ return [
         'sponsor' => false,
         'latitude' => '41.9007753',
         'longitude' => '12.4683785',
-        'address' => 'Via Emilio Morosini, 32, Roma, Lazio, Italia, Roma, Lazio, Italia',
+        'address' => 'Via Emilio Morosini, 32, Roma, Lazio, Italia',
         'deleted' => false
     ],
     [
@@ -64,7 +64,7 @@ return [
         'sponsor' => true,
         'latitude' => '41.8894275',
         'longitude' => '12.4944863',
-        'address' => 'Via dei SS. Quattro, 56, Roma, Lazio, Italia, Roma, Lazio, Italia',
+        'address' => 'Via dei SS. Quattro, 56, Roma, Lazio, Italia',
         'deleted' => false
     ],
 ];
