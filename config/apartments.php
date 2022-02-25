@@ -62,8 +62,8 @@ return [
         'sq' => '75',
         'images' => '',
         'sponsor' => true,
-        'latitude' => '41.9007753',
-        'longitude' => '12.4683785',
+        'latitude' => '41.8894275',
+        'longitude' => '12.4944863',
         'address' => 'Via dei SS. Quattro, 56, Roma, Lazio, Italia, Roma, Lazio, Italia',
         'deleted' => false
     ],
