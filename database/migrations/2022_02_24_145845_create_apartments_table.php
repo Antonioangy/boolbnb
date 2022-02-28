@@ -20,6 +20,7 @@ class CreateApartmentsTable extends Migration
             $table -> text('description');
             $table -> tinyInteger('rooms') -> unsigned();
             $table -> tinyInteger('beds') -> unsigned();
+            $table -> tinyInteger('bathrooms') -> unsigned();
             $table -> smallInteger('sq')-> unsigned();
             $table -> string('images') -> nullable();
             $table -> boolean('sponsor') -> default(false);
