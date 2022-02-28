@@ -22,7 +22,7 @@ return [
         'bathrooms' => '2',
         'sq' => '80',
         'images' => '',
-        'sponsor' => false,
+        'sponsor' => true,
         'latitude' => '41.8859702',
         'longitude' => '12.4691541',
         'address' => 'Via Emilio Morosini, 24, Roma, Lazio, Italia',

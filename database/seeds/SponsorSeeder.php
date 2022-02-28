@@ -20,14 +20,18 @@ class SponsorSeeder extends Seeder
 
             $newSponsor -> name = $sponsor['name'];
             $newSponsor -> duration = $sponsor['duration'];
-            $newSponsor -> price = $sponsor['price']; 
+            $newSponsor -> price = $sponsor['price'];
 
-            $apartment = Apartment::inRandomOrder() -> limit(rand(0, 3)) ->get();
-            
             $newSponsor -> save();
-            
-            $newSponsor -> apartments() -> attach($apartment);
-            
+        }
+
+        $apartments = Apartment::where('sponsor', true) -> get();
+
+        foreach ($apartments as $apartment) {
+                
+            $randomSponsor = Sponsor::all()->random();
+    
+            $randomSponsor -> apartments() -> attach($apartment);
         }
     }
 }
