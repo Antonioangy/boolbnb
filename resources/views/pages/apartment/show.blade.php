@@ -7,6 +7,6 @@
 
 @section('content')
     
-
     <a href="{{ route('home') }}">BACK</a>
+    
 @endsection

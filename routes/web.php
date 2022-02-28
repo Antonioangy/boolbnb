@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'GuestController@home') -> name('home');
+Route::get('/access', 'GuestController@access') -> name('access');
 
 // ROTTE DI REGISTRAZIONE, LOGIN E LOGOUT
 Route::get('/logout', 'Auth\LoginController@logout') ->name('logout');
@@ -23,13 +24,22 @@ Route::get('/logout', 'Auth\LoginController@logout') ->name('logout');
 Route::post('/register', 'Auth\RegisterController@register') ->name('register');
 Route::post('/login', 'Auth\LoginController@login') ->name('login');
 
+
+// user
+Route::middleware('auth')
+        ->name('user.')
+        ->prefix('user')
+        ->group(function () {
+            Route::get('/dashboard', 'UserController@dashboard') ->name('dashboard');
+        });
+
 // appartamenti
 Route::name('apartment.')
         ->prefix('apartment')
         ->group(function () {
             Route::get('/show/{id}', 'ApartmentController@show')->name('show');
 
-            Route::middleware('Auth')
+            Route::middleware('auth')
                     ->group(function () {
                         Route::get('/create', 'ApartmentController@create')->name('create');
                         Route::post('/store', 'ApartmentController@store')->name('store');

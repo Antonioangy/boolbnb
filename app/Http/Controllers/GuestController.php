@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Apartment;
+use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
 {
@@ -13,5 +14,10 @@ class GuestController extends Controller
         $apartments = Apartment::all();
 
         return view('pages.home', compact('apartments'));
+    }
+
+    public function access() {
+
+        return view('pages.access');
     }
 }
