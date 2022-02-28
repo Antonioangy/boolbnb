@@ -28,10 +28,10 @@ Route::middleware('auth')
         ->name('apartment.')
         ->prefix('apartment')
         ->group(function () {
-    Route::get('/create', 'Apartment@create')->name('create');
-    Route::post('/store', 'Apartment@store')->name('store');
-    Route::get('/edit/{id}', 'Apartment@edit')->name('edit');
-    Route::post('/update/{id}', 'Apartment@update')->name('update');
-    Route::get('delete/{id}', 'DeleteController@delete')->name('delete');
+    Route::get('/create', 'ApartmentController@create')->name('create');
+    Route::post('/store', 'ApartmentController@store')->name('store');
+    Route::get('/edit/{id}', 'ApartmentController@edit')->name('edit');
+    Route::post('/update/{id}', 'ApartmentController@update')->name('update');
+    Route::get('/delete/{id}', 'ApartmentController@delete')->name('delete');
 
 });
