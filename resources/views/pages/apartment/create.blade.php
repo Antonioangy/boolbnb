@@ -40,6 +40,19 @@
         <label for="address">Address:</label>
         <input type="text" name="address" placeholder="Address"><br>
 
+        <h3>Servizi</h3>
+
+        @foreach ($services as $service)
+            <input type="checkbox" name="services[]" value="{{ $service -> id }}"> {{ $service -> name }}<br>
+        @endforeach <br>
+
+        <div class="form-check">
+            
+            
+        </div>
+
+
+
         <input type="submit" value="create">
 
     </form>
