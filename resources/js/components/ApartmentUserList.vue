@@ -7,6 +7,8 @@
                 <a :href="`/apartment/show/${apartment.id}`">
                     {{ apartment.title }}
                 </a>
+                <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-primary">Edit</a>
+                <a :href="`/apartment/delete/${apartment.id}`" class="btn btn-danger">Delete</a>
             </li>
         </ul>
     </div>
