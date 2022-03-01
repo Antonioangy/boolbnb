@@ -77,19 +77,53 @@ class ApartmentController extends Controller
 
         $apartment = Apartment::findOrFail($id);
 
-        return view('pages.edit', compact('apartment', 'categories', 'tags'));
+        $services = Service::all();
+
+        return view('pages.apartment.edit', compact('apartment','services'));
     }
 
     public function update(Request $request, $id)
     {
 
         $data = $request->validate([
-            
+            'title' => 'string',
+            'description' => 'string',
+            'rooms' => 'integer',
+            'beds' => 'integer',
+            'bathrooms' => 'integer',
+            'sq' => 'integer',
+            'address' => 'string',
         ]);
 
+
+        $image = $request -> file('images');
+        $imageName = rand(1000, 999999) . '_' .time() . '.' . $image -> getClientOriginalExtension();
+
+        $image -> storeAs('/assets/', $imageName, 'public');
+
+
+        $data['images'] = $imageName;
+        
+        $data['author'] = Auth::user() -> name;
+        
         $apartment = Apartment::findOrFail($id);
 
-        return redirect()->route('show', $apartment->id);
+        $apartment -> update($data);
+        
+        $services = [];
+
+        try {
+
+            $services = Service::findOrFail($request -> get('services'));
+
+        } catch (\Exception $e) { }
+
+        $apartment -> services() -> sync($services);
+        
+        $apartment -> save();
+
+
+        return redirect()->route('apartment.show', $apartment->id);
     }
 
     public function delete($id)
