@@ -143,6 +143,10 @@ class ApartmentController extends Controller
         if ($apartment -> user_id == Auth::user() -> id) {
 
             $apartment -> services() -> sync([]);
+            $apartment -> sponsors()-> sync([]);
+            $apartment -> messages()-> delete();
+            $apartment -> views() -> delete();
+
             $apartment -> save();
     
             $apartment -> delete();
