@@ -95,7 +95,6 @@ class ApartmentController extends Controller
             'address' => 'string',
         ]);
 
-
         $image = $request -> file('images');
         $imageName = rand(1000, 999999) . '_' .time() . '.' . $image -> getClientOriginalExtension();
 
