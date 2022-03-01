@@ -128,9 +128,13 @@ class ApartmentController extends Controller
 
     public function delete($id)
     {
-
         $apartment = Apartment::findOrFail($id);
 
-        return redirect()->route('');
+        $apartment -> services() -> sync([]);
+        $apartment -> save();
+
+        $apartment -> delete();
+
+        return redirect() -> route('user.dashboard');
     }
 }
