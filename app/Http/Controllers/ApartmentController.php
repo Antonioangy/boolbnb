@@ -39,12 +39,15 @@ class ApartmentController extends Controller
         ]);
     
         $image = $request -> file('images');
-        $imageName = rand(1000, 999999) . '_' .time() . '.' . $image -> getClientOriginalExtension();
 
-        $image -> storeAs('/assets/', $imageName, 'public');
+        if ($image) {
 
+            $imageName = rand(1000, 999999) . '_' . time() . '.' . $image->getClientOriginalExtension();
 
-        $data['images'] = $imageName;
+            $image->storeAs('/assets/', $imageName, 'public');
+
+            $data['images'] = $imageName;
+        }
         
         $data['author'] = Auth::user() -> name;
         
@@ -74,12 +77,17 @@ class ApartmentController extends Controller
 
     public function edit($id)
     {
-
         $apartment = Apartment::findOrFail($id);
 
         $services = Service::all();
 
-        return view('pages.apartment.edit', compact('apartment','services'));
+        if ($apartment->user_id == Auth::user()->id) {
+
+            return view('pages.apartment.edit', compact('apartment','services'));
+        } else {
+
+            return redirect()->route('user.dashboard');
+        }
     }
 
     public function update(Request $request, $id)
@@ -96,12 +104,15 @@ class ApartmentController extends Controller
         ]);
 
         $image = $request -> file('images');
-        $imageName = rand(1000, 999999) . '_' .time() . '.' . $image -> getClientOriginalExtension();
 
-        $image -> storeAs('/assets/', $imageName, 'public');
+        if ($image) {
 
-
-        $data['images'] = $imageName;
+            $imageName = rand(1000, 999999) . '_' .time() . '.' . $image -> getClientOriginalExtension();
+    
+            $image -> storeAs('/assets/', $imageName, 'public');
+    
+            $data['images'] = $imageName;
+        }
         
         $data['author'] = Auth::user() -> name;
         
@@ -129,10 +140,13 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::findOrFail($id);
 
-        $apartment -> services() -> sync([]);
-        $apartment -> save();
+        if ($apartment -> user_id == Auth::user() -> id) {
 
-        $apartment -> delete();
+            $apartment -> services() -> sync([]);
+            $apartment -> save();
+    
+            $apartment -> delete();
+        }
 
         return redirect() -> route('user.dashboard');
     }
