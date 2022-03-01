@@ -22,6 +22,9 @@
         <label for="email">E-mail</label>
         <input type="text" name="email"> <br>
 
+        <label for="birth_day">Birthday</label>
+        <input type="date" name="birth_day"> <br>
+
         <label for="password">Password</label>
         <input type="password" name="password"> <br>
 

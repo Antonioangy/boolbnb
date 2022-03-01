@@ -24,8 +24,8 @@ class CreateApartmentsTable extends Migration
             $table -> smallInteger('sq')-> unsigned();
             $table -> string('images') -> nullable();
             $table -> boolean('sponsor') -> default(false);
-            $table -> string('latitude');
-            $table -> string('longitude');
+            $table -> string('latitude')-> nullable();
+            $table -> string('longitude')-> nullable();
             $table -> string('address');
             $table -> boolean('deleted') -> default(false);
 

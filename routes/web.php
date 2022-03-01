@@ -2,19 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/', 'GuestController@home') -> name('home');
 Route::get('/access', 'GuestController@access') -> name('access');
 
@@ -47,4 +34,4 @@ Route::name('apartment.')
                         Route::post('/update/{id}', 'ApartmentController@update')->name('update');
                         Route::get('/delete/{id}', 'ApartmentController@delete')->name('delete');
                     });
-           });
+        });
