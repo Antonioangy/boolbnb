@@ -6,6 +6,7 @@ use App\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Service;
 
 class ApartmentController extends Controller
 {
@@ -19,7 +20,9 @@ class ApartmentController extends Controller
     public function create()
     {
 
-        return view('pages.apartment.create');
+        $services = Service::all();
+
+        return view('pages.apartment.create', compact('services'));
     }
 
     public function store(Request $request){
@@ -54,6 +57,17 @@ class ApartmentController extends Controller
 
         $apartment -> save();
         
+        $services = [];
+
+        try {
+
+            $services = Service::findOrFail($request -> get('services'));
+
+        } catch (\Exception $e) { }
+
+        $apartment -> services() -> attach($services);
+        
+        $apartment -> save();
 
         return redirect()->route('apartment.show', $apartment -> id);
     }
