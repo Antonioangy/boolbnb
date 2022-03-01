@@ -14,5 +14,7 @@
         <a class="btn btn-secondary" href="{{ route('logout') }}">LOGOUT</a>
 
         <apartment-user-list></apartment-user-list>
+
+        <a href="{{ route('apartment.create') }}">NEW APARTMENT</a>
     @endauth
 @endsection

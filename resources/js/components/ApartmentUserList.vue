@@ -4,7 +4,9 @@
         <!-- lista appartamenti dell'utenete loggato -->
         <ul>
             <li v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
-                {{ apartment.title }}
+                <a :href="`/apartment/show/${apartment.id}`">
+                    {{ apartment.title }}
+                </a>
             </li>
         </ul>
     </div>
