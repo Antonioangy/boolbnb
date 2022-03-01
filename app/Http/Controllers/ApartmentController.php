@@ -35,6 +35,13 @@ class ApartmentController extends Controller
             'address' => 'string',
         ]);
     
+        $image = $request -> file('images');
+        $imageName = rand(1000, 999999) . '_' .time() . '.' . $image -> getClientOriginalExtension();
+
+        $image -> storeAs('/assets/', $imageName, 'public');
+
+
+        $data['images'] = $imageName;
         
         $data['author'] = Auth::user() -> name;
         
@@ -47,7 +54,6 @@ class ApartmentController extends Controller
 
         $apartment -> save();
         
-
 
         return redirect()->route('apartment.show', $apartment -> id);
     }
