@@ -35,3 +35,14 @@ Route::name('apartment.')
                         Route::get('/delete/{id}', 'ApartmentController@delete')->name('delete');
                     });
         });
+
+// api
+
+Route::middleware('auth')
+-> prefix('api')
+-> name('api.')
+-> group(function () {
+
+    // lista appartamenti dell'utenete loggato
+    Route::get('/user/apartments/list', 'ApiController@getApartmentUserList') -> name('user.apartments.list');
+}); 
