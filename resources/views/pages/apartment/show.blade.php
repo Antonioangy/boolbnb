@@ -1,7 +1,7 @@
 @extends('layouts.main-layout')
 
 @section('title')
-    {{-- {{ $apartment -> title }} --}}
+    {{ $apartment -> title }}
 @endsection
 
 
@@ -32,6 +32,31 @@
 
     <div>
         {{ $apartment -> address }}
+    </div>
+
+    <div>
+        <h3>Invia una mail al proprietario</h3>
+        <form action="{{ route('apartment.message_send', $apartment -> id) }}" method="POST">
+            @method('POST')
+            @csrf
+
+            <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+
+            <input type="email" name="sender" class="form-control" id="exampleFormControlInput1" placeholder="insert your email"
+            @if (Auth::user())
+            value="{{$user -> email}}"
+            @endif>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Example textarea</label>
+              <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            <input type="submit" value="Invia" class="btn btn-success">
+        </form>
+
     </div>
     
     <a href="{{ route('home') }}">BACK</a>

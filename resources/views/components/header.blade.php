@@ -1,6 +1,6 @@
 <header>
     <h1>
-        Hello World
+        Header
     </h1>
 
     <a href="{{ route('home') }}">HOME</a>

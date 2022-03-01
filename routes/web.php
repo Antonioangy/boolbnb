@@ -25,6 +25,7 @@ Route::name('apartment.')
         ->prefix('apartment')
         ->group(function () {
             Route::get('/show/{id}', 'ApartmentController@show')->name('show');
+            Route::post('/message/send/{id}', 'ApartmentController@message_send')->name('message_send');
 
             Route::middleware('auth')
                     ->group(function () {

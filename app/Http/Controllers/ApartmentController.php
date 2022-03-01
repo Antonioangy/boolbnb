@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Service;
+use App\Message;
 
 class ApartmentController extends Controller
 {
     public function show($id) {
 
         $apartment = Apartment::findOrFail($id);
+        $user = Auth::user();
 
-        return view('pages.apartment.show', compact('apartment'));
+        return view('pages.apartment.show', compact('apartment', 'user'));
     }
 
     public function create()
@@ -143,6 +145,10 @@ class ApartmentController extends Controller
         if ($apartment -> user_id == Auth::user() -> id) {
 
             $apartment -> services() -> sync([]);
+            $apartment -> sponsors() -> sync([]);
+            $apartment -> messages() -> delete();
+            $apartment -> views() -> delete();
+            
             $apartment -> save();
     
             $apartment -> delete();
@@ -150,4 +156,26 @@ class ApartmentController extends Controller
 
         return redirect() -> route('user.dashboard');
     }
+
+    /* messages */
+
+    public function message_send(Request $request, $id) {
+
+        $data = $request->validate([
+            'sender' => 'email',
+            'text' => 'string',
+        ]);
+
+        $message = Message::make($data);
+
+        $apartment = Apartment::findOrFail($id);
+
+        $message -> apartment()->associate($apartment);
+
+        $message -> save();
+
+        return redirect()->route('apartment.show', $apartment->id);
+    }
+
+    
 }

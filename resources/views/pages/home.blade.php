@@ -37,7 +37,7 @@
         @foreach ($apartments as $apartment)
         <tr>
             <td>
-                {{ $apartment -> title }}
+                <a href="{{route('apartment.show', $apartment -> id)}}">{{ $apartment -> title }}</a>
             </td>       
             <td>
                 {{ $apartment -> description }}
