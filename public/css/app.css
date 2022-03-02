@@ -21060,3 +21060,9 @@ td {
   border: 1px solid black;
 }
 
+ul {
+  margin: 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+
