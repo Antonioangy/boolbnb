@@ -7,6 +7,28 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Font-Awesome
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
 th, td {
     border: 1px solid black;
+}
+
+.darkBlue {
+    color: $darkBlue;
+}
+.blue {
+    color: $blue;
+}
+.grey {
+    color: $grey;
+}
+.white {
+    color: $white;
+}
+.orange {
+    color: $orange;
 }
