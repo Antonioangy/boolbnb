@@ -7,8 +7,11 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 // Colors
-$darkBlue: #2D3142;
-$blue: #4F5D75;
-$grey: #BFC0C0;
-$white: #FFFFFF;
-$orange: #EF8354;
+$theme-colors: (
+    'darkBlue': #2D3142,
+    'blue': #4F5D75,
+    'grey': #BFC0C0,
+    'white': #FFFFFF,
+    'orange': #EF8354,
+    'red': #d00000,
+);
