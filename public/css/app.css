@@ -21252,3 +21252,11 @@ ul {
   background-position: center;
 }
 
+footer ul {
+  list-style: none;
+}
+
+footer ul li:hover {
+  color: #fff;
+}
+

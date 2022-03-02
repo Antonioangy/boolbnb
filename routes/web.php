@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'GuestController@home') -> name('home');
-Route::get('/access', 'GuestController@access') -> name('access');
 
 // ROTTE DI REGISTRAZIONE, LOGIN E LOGOUT
 Route::get('/logout', 'Auth\LoginController@logout') ->name('logout');

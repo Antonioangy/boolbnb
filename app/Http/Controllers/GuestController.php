@@ -26,9 +26,4 @@ class GuestController extends Controller
 
         return view('pages.home', compact('sponsoredApartments'));
     }
-
-    public function access() {
-
-        return view('pages.access');
-    }
 }

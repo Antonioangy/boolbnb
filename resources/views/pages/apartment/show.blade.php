@@ -19,7 +19,11 @@
         </div>
         {{-- SHOW APPARTAMENTO --}}
         <div class="show_apartment w-100 h-100">
+<<<<<<< HEAD
             @if ($apartment->images)  
+=======
+            @if ($apartment->images)
+>>>>>>> 8fd479ae4a457c97e82e081f652576c7e79caed8
                 <img class="w-100" src="{{asset('storage/assets/'. $apartment->images)}}" alt="{{$apartment -> title}}">
             @endif
             <p>

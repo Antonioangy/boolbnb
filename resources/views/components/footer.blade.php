@@ -1,9 +1,9 @@
 <footer>
-    <div class="container-fluid mt-5  border-top border-secondary">
+    <div class="container-fluid mt-5  border-top border-secondary bg-orange">
         <div class="row">
             <div class="col-xl-3">
                 <h3>Assistenza</h3>
-                <ul>
+                <ul class="list-unstyled">
                     <li>
                         Centro Assistenza
                     </li>
@@ -26,7 +26,7 @@
             </div>
             <div class="col-xl-3">
                 <h3>Community</h3>
-                <ul>
+                <ul class="list-unstyled">
                     <li>
                         Boolbnb.org: un rifugio sicuro
                     </li>
@@ -40,7 +40,7 @@
             </div>
             <div class="col-xl-3">
                 <h3>Ospitare</h3>
-                <ul>
+                <ul class="list-unstyled">
                     <li>
                         Prova a ospitare
                     </li>
@@ -60,7 +60,7 @@
             </div>
             <div class="col-xl-3">
                 <h3>Informazioni</h3>
-                <ul>
+                <ul class="list-unstyled">
                     <li>
                         Newsroom
                     </li>
