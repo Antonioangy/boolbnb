@@ -13,12 +13,11 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-// jumbotron
-
 th, td {
     border: 1px solid black;
 }
 
+// colori
 .darkBlue {
     color: $darkBlue;
 }
@@ -35,29 +34,6 @@ th, td {
     color: $orange;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .text_clamp {
     overflow: hidden;
     display: -webkit-box;
@@ -65,4 +41,5 @@ th, td {
     -webkit-line-clamp: 5;
 }
 
+//jumbotron
 @import 'partials/jumbotron.scss';
