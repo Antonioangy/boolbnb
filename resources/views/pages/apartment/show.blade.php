@@ -49,9 +49,6 @@
     
 
     
-
-    
-
     
         @if ($apartment -> longitude != '')
         <apartment-map :lng="{{ $apartment -> longitude }}" :lat="{{ $apartment -> latitude }}"></apartment-map>
