@@ -6,7 +6,39 @@
 
 @section('content')
 
-<table>
+{{-- jumbotron --}}
+<section id="jumbotron">
+
+
+</section>
+<div class="container">
+
+
+    {{-- appartamenti sponsorizzati --}}
+    <section class="row">
+
+        @foreach ($sponsoredApartments as $sponsoredApartment )
+            
+        <div class="col-4 card " style="width: 18rem;">
+            <img src="{{ asset('storage/assets/'.$sponsoredApartment -> images) }}" class="card-img-top" alt="non trovo immagine">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ $sponsoredApartment -> title }}
+                </h5>
+                <p class="card-text text_clamp">
+                    {{ $sponsoredApartment -> description }}
+                </p>
+                <a href="#" class="btn btn-primary">
+                    Go somewhere
+                </a>
+            </div>
+        </div>
+        @endforeach
+    </section>
+</div>
+
+
+{{-- <table>
     <tr>
         <th>
             Titolo
@@ -63,6 +95,6 @@
         </tr> 
         @endforeach
 
-</table>
+</table> --}}
     
 @endsection
