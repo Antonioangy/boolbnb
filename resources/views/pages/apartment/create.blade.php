@@ -50,17 +50,10 @@
             </ul>
 
         </div>
-
-        <div class="form-check">
-            
-            
+        <div class="buttons text-center">
+            <a href="{{ route('user.dashboard') }}" class="btn btn-darkBlue">Indietro</a>
+            <input type="submit" value="Crea" class="btn btn-orange">
         </div>
-
-
-
-        <input type="submit" value="create">
-
     </form>
 
-    <a href="{{ route('home') }}">BACK</a>
 @endsection

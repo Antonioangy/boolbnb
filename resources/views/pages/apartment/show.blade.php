@@ -20,7 +20,7 @@
         {{-- SHOW APPARTAMENTO --}}
         <div class="show_apartment w-100 h-100">
             @if ($apartment->images)  
-                <img class="w-100" src="{{ asset('storage/assets/appartamento.jpg') }}" alt="">
+                <img class="w-100" src="{{asset('storage/assets/'. $apartment->images)}}" alt="{{$apartment -> title}}">
             @endif
             <p>
                 {{ $apartment -> description }}
@@ -69,11 +69,15 @@
                   <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
     
-                <input type="submit" value="Invia" class="btn btn-blue">
+
+                <div class="buttons text-center mt-5">
+                    <a href="{{ route('user.dashboard') }}" class="btn btn-darkBlue">Indietro</a>
+                    <input type="submit" value="Invia" class="btn btn-orange">
+                </div>
+
+                
             </form>
         </div>
-
-        <button class="btn btn-darkBlue mt-2"><a class="text-white" href="{{ route('home') }}">Back</a></button>
     </div>
     
 @endsection
