@@ -21233,36 +21233,15 @@ readers do not read off random characters that represent icons */
   background-size: cover;
   background-position: center;
 }
-
 th,
 td {
   border: 1px solid black;
 }
 
-<<<<<<< HEAD
 ul {
   margin: 0;
   -webkit-padding-start: 0;
           padding-inline-start: 0;
-=======
-.darkBlue {
-  color: #2D3142;
-}
-
-.blue {
-  color: #4F5D75;
-}
-
-.grey {
-  color: #BFC0C0;
-}
-
-.white {
-  color: #FFFFFF;
-}
-
-.orange {
-  color: #EF8354;
 }
 
 .text_clamp {
@@ -21270,6 +21249,12 @@ ul {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
->>>>>>> a11eb06bd0e799707c19d210681fbd0695e1cad2
+}
+
+#jumbotron {
+  background-image: url("/storage/images/boolbnb-jumbo-bg.png");
+  height: 650px;
+  background-size: cover;
+  background-position: center;
 }
 
