@@ -60,6 +60,8 @@
         </form>
 
     </div>
+
+    <apartment-map :lng="{{ $apartment -> longitude }}" :lat="{{ $apartment -> latitude }}"></apartment-map>
     
     <a href="{{ route('home') }}">BACK</a>
     
