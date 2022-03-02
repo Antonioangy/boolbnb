@@ -26,7 +26,8 @@ export default {
                 key: this.apiKey,
                 container: 'map',
                 center: this.coordinates,
-                zoom: 14
+                zoom: 14,
+                language: 'IT'
             });
             map.addControl(new this.tt.FullscreenControl()); 
             map.addControl(new this.tt.NavigationControl());
@@ -64,7 +65,7 @@ export default {
 
 <style lang="scss" scoped>
 #map {
-  height: 90vh;
-  width: 90vw;
+  height: 50vh;
+  width: 50vw;
 }
 </style>
