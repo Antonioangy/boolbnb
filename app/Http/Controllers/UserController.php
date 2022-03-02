@@ -11,13 +11,13 @@ class UserController extends Controller
 {
     public function dashboard() {
 
-        $messages = Message::all();
+        $messages = Message::all() -> sortBy('created_at');
 
         $apartments = Apartment::all();
 
         $user = Auth::user();
-        $messagesArray = [];
-        $apartmentArray = [];
+
+        $obj = [];
 
         foreach ($apartments as $apartment) {
             if ($apartment -> user_id == $user -> id) {
@@ -25,11 +25,15 @@ class UserController extends Controller
                 foreach ($messages as $message) {
 
                     if ($apartment -> id == $message -> apartment_id) {
-                        array_push($messagesArray, $message);
+                        
+                        array_push($obj, (object)[
+                            'message' => $message,
+                            'apartment' => $apartment
+                        ]);
                     }
                 }
             }
         }
-        return view('pages.dashboard', compact('messagesArray'));
+        return view('pages.dashboard', compact('obj'));
     }
 }

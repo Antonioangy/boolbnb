@@ -17,12 +17,14 @@
         <a href="{{ route('apartment.create') }}">NEW APARTMENT</a>
 
         <h2>Messages Recived</h2>
-
-        @foreach ($messagesArray as $message)
-            <h4>{{$message -> sender}}</h4>
-            <p>{{$message -> text}}</p>
-            <hr><hr>
-        @endforeach
-
+        <div class="d-flex flex-column-reverse">
+            @foreach ($obj as $item)
+                <div>
+                    <h4>{{$item -> message -> sender}} --- {{$item -> apartment -> title}}</h4>
+                    <p>{{$item -> message -> text}}</p>
+                    <h6>inviato il {{$item -> message -> created_at -> format ('d/m/Y -- h:i')}}</h6>
+                </div>
+            @endforeach
+        </div>
     @endauth
 @endsection
