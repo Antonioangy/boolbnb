@@ -14,37 +14,42 @@
         @method('POST')
         @csrf
 
-        <h1>Inserisci nuovo appartamento</h1>
-
-        <label for="title">Title:</label>
-        <input type="text" name="title" placeholder="Titolo"> <br>
         
-        <label for="description">Description:</label>
-        <input type="text" name="description" placeholder="Descrizione"><br>
-        
-        <label for="rooms">Rooms:</label>
-        <input type="number" name="rooms" value="0" min="0"><br>
+        <div class="insert-container container-xl bg-darkBlue d-flex flex-column p-5 rounded">
+            <h1 class="text-white">Inserisci nuovo appartamento</h1>
 
-        <label for="beds">Beds:</label>
-        <input type="number" name="beds" value="0" min="0"><br>
-        
-        <label for="bathrooms">Bathrooms:</label>
-        <input type="number" name="bathrooms" value="0" min="0"><br>
-        
-        <label for="sq">Square:</label>
-        <input type="number" name="sq" value="0" min="0"><br>
+            <input type="text" name="title" placeholder="Titolo" class="p-2 h5"> <br>
+            
+            <input type="text" name="description" placeholder="Descrizione" class="p-2 h5"><br>
+            
+            <input type="number" name="rooms" placeholder="Stanze" min="0" class="p-2 h5"><br>
+    
+            <input type="number" name="beds" placeholder="Letti" min="0" class="p-2 h5"><br>
+            
+            <input type="number" name="bathrooms" placeholder="Bagni" min="0" class="p-2 h5"><br>
+            
+            <input type="number" name="sq" placeholder="Metri Quadri" min="0" class="p-2 h5"><br>
+    
+            <input type="file" name="images" class="text-white"><br>
+    
+            <input type="text" name="address" placeholder="Address" class="p-2 h5"><br>
+        </div>
 
-        <label for="images">Images:</label>
-        <input type="file" name="images"><br>
+        <div class="service-container container-xl d-flex flex-column p-5 rounded">
+            <h3 class="">Servizi</h3>
+    
+            <ul class="row">
 
-        <label for="address">Address:</label>
-        <input type="text" name="address" placeholder="Address"><br>
+            @foreach ($services as $service)
+            
+                    <li class="list-group-item col-3">  <input type="checkbox" name="services[]" value="{{ $service -> id }}"> {{ $service -> name }}</li>
+               
 
-        <h3>Servizi</h3>
+            @endforeach <br>
 
-        @foreach ($services as $service)
-            <input type="checkbox" name="services[]" value="{{ $service -> id }}"> {{ $service -> name }}<br>
-        @endforeach <br>
+            </ul>
+
+        </div>
 
         <div class="form-check">
             
