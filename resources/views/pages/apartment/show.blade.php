@@ -28,7 +28,9 @@
         Metri quadri: {{ $apartment -> sq }}
     </span>
 
-    <img src="{{asset('storage/assets/'.$apartment->images)}}" alt="non trovo immagine">
+    @if ($apartment->images)  
+    <img src="{{asset('storage/assets/'. $apartment->images)}}" alt="{{$apartment -> title}}">
+    @endif
 
     <div>
         {{ $apartment -> address }}

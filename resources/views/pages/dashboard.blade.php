@@ -16,6 +16,8 @@
 
         <a href="{{ route('apartment.create') }}">NEW APARTMENT</a>
 
+        <h2>Messages Recived</h2>
+
         @foreach ($messagesArray as $message)
             <h4>{{$message -> sender}}</h4>
             <p>{{$message -> text}}</p>
