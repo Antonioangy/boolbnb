@@ -8,7 +8,7 @@
             </a>
 
             <div>
-                {{--  --}}
+                {{-- nav  --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -18,8 +18,8 @@
                             <a class="nav-link orange" href="{{ route('home') }}">Home</a>
                         </li>
                         @auth
-                        <li class="nav-item rounded-circle border border-orange p-5">
-                            <a class="nav-link" href="{{ route('user.dashboard') }}"><i class="fa-solid fa-user text-orange w-100"></i></a>
+                        <li class="nav-item rounded-circle border border-darkBlue">
+                            <a class="nav-link" href="{{ route('user.dashboard') }}"><i class="fa-solid fa-user text-darkBlue text"></i></a>
                         </li>
                         @else
                         <li class="nav-item ">
