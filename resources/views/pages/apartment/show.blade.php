@@ -19,8 +19,8 @@
         </div>
         {{-- SHOW APPARTAMENTO --}}
         <div class="show_apartment w-100 h-100">
-            @if ($apartment->images)  
-                <img class="w-100" src="{{ asset('storage/assets/appartamento.jpg') }}" alt="">
+            @if ($apartment->images)
+                <img class="w-100" src="{{asset('storage/assets/'. $apartment->images)}}" alt="{{$apartment -> title}}">
             @endif
             <p>
                 {{ $apartment -> description }}
