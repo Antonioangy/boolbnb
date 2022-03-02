@@ -20,7 +20,9 @@
         @foreach ($sponsoredApartments as $sponsoredApartment )
             
         <div class="col-12 col-md-4 card " style="width: 18rem;">
-            <img src="{{ asset('storage/assets/'.$sponsoredApartment -> images) }}" class="card-img-top" alt="non trovo immagine">
+            @if ($sponsoredApartment->images)  
+                <img src="{{ asset('storage/assets/'.$sponsoredApartment -> images) }}" class="card-img-top" alt="non trovo immagine">
+            @endif
             <div class="card-body">
                 <h5 class="card-title">
                     {{ $sponsoredApartment -> title }}
