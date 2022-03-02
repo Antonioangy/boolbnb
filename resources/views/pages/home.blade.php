@@ -7,19 +7,19 @@
 @section('content')
 
 {{-- jumbotron --}}
-<section id="jumbotron">
-
+<section id="jumbotron" class="mb-5">
+    
 
 </section>
-<div class="container">
 
+<div class="container">
 
     {{-- appartamenti sponsorizzati --}}
     <section class="row">
 
         @foreach ($sponsoredApartments as $sponsoredApartment )
             
-        <div class="col-4 card " style="width: 18rem;">
+        <div class="col-12 col-md-4 card " style="width: 18rem;">
             <img src="{{ asset('storage/assets/'.$sponsoredApartment -> images) }}" class="card-img-top" alt="non trovo immagine">
             <div class="card-body">
                 <h5 class="card-title">
@@ -28,8 +28,8 @@
                 <p class="card-text text_clamp">
                     {{ $sponsoredApartment -> description }}
                 </p>
-                <a href="#" class="btn btn-primary">
-                    Go somewhere
+                <a href="{{ route('apartment.show', $sponsoredApartment ->id) }}" class="btn btn-primary">
+                    Vedi Appartamento
                 </a>
             </div>
         </div>
