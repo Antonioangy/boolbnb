@@ -20,9 +20,11 @@ class GuestController extends Controller
             dd($sponsor->pivot->created_at);
         } */
 
-        $apartments = Apartment::all();
+        // $apartments = Apartment::all();
 
-        return view('pages.home', compact('apartments'));
+        $sponsoredApartments = Apartment::where('sponsor', true) -> get();
+
+        return view('pages.home', compact('sponsoredApartments'));
     }
 
     public function access() {
