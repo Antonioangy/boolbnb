@@ -2,7 +2,7 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{asset('storage/images/boolbnb-logo.png')}}" alt="bnb logo">
+                <img class="w-50" src="{{asset('storage/images/boolbnb-logo.png')}}" alt="bnb logo">
             </a>
 
             <div>
