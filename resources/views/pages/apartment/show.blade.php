@@ -76,8 +76,5 @@
 
         <button class="btn btn-primary mt-2"><a class="text-white" href="{{ route('home') }}">BACK</a></button>
     </div>
-
-
-   
     
 @endsection
