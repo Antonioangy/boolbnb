@@ -1,5 +1,5 @@
 <footer>
-    <div class="container-fluid mt-5  border-top border-secondary bg-orange">
+    <div class="container-fluid mt-5  border-top border-secondary bg-darkBlue text-white">
         <div class="row">
             <div class="col-xl-3">
                 <h3>Assistenza</h3>

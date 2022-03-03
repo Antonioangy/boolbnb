@@ -1,28 +1,30 @@
 <header>
     <div>
         {{-- navbar header --}}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between flex-nowrap">
             {{-- logo --}}
             <a class="navbar-brand" href="{{ route('home') }}">
                 <img class="w-50" src="{{asset('storage/images/boolbnb-logo.png')}}" alt="bnb logo">
             </a>
 
             <div>
-                {{-- nav  --}}
+                {{-- nav hamburger menu  --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                {{-- lista link nav --}}
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link orange" href="{{ route('home') }}">Home</a>
+                        <li class="nav-item active mx-2">
+                            <a class="btn btn-blue text-white" href="{{ route('home') }}">Home</a>
                         </li>
                         @auth
                         <li class="nav-item rounded-circle border border-darkBlue">
-                            <a class="nav-link" href="{{ route('user.dashboard') }}"><i class="fa-solid fa-user text-darkBlue text"></i></a>
+                            <a class="nav-link" href="{{ route('user.dashboard') }}"><i class="fa-solid fa-user text-darkBlue"></i></a>
                         </li>
                         @else
                         <li class="nav-item ">
+                            {{-- pulsante accesso modal --}}
                             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#access">Accedi</button>
                         </li>
                         @endauth
@@ -32,7 +34,7 @@
             </div>
         </nav>
     </div>
-
+    {{-- modal bootstrap per accesso --}}
     <div class="modal fade" id="access" tabindex="-1" role="dialog" aria-labelledby="access" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
