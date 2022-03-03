@@ -58,21 +58,5 @@
               }
             }
         </script>
-        {{-- @foreach ($obj as $item)
-                <a href="#Foo" class="btn btn-default" data-toggle="collapse"> 
-                    <div>
-                        <h5>
-                            <i class="fas fa-home"></i> Alloggio: {{$item -> apartment -> title}} <i class="fas fa-user"></i> Mittente: {{$item -> message -> sender}}
-                        </h5>
-                    </div>
-                </a>
-                    
-                <div id="Foo" class="collapse">
-                    <div id="commentoUtente">
-                        <p class="m">Commento: {{$item -> message -> text}}</p>
-                        <p>inviato il {{$item -> message -> created_at -> format ('d/m/Y A h:i')}}</p>
-                    </div> 
-                </div>
-                @endforeach --}}
     </main>
 @endsection
