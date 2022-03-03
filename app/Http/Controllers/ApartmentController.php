@@ -14,9 +14,10 @@ class ApartmentController extends Controller
     public function show($id) {
 
         $apartment = Apartment::findOrFail($id);
+        $services = Service::all();
         $user = Auth::user();
 
-        return view('pages.apartment.show', compact('apartment', 'user'));
+        return view('pages.apartment.show', compact('apartment', 'user', 'services'));
     }
 
     public function create()
