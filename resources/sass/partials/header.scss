@@ -2,8 +2,17 @@ header {
     .icon_container {
         width: 40px;
         height: 40px;
-        i {
-            
-        }
+    }
+
+    label {
+        width: 40%;
+    }
+    input {
+        width: 50%;
+    }
+    .btn_login,
+    .btn_register {
+        width: 30%;
+        display: block;
     }
 }

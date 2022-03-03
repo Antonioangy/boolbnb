@@ -14,15 +14,16 @@
                 </button>
                 {{-- lista link nav --}}
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav align-items-center">
                         <li class="nav-item active m-2">
                             <a class="btn btn-blue text-white" href="{{ route('home') }}">Home</a>
                         </li>
                         @auth
                         <li class="nav-item align-self-center">
-                            <a class="nav-link icon_container d-flex align-content-center justify-content-center text-darkBlue border border-darkBlue rounded-circle" href="{{ route('user.dashboard') }}">
+                            {{-- pulsante pannello utente modal --}}
+                            <button type="button" class="icon_container align-content-center justify-content-center text-darkBlue border border-darkBlue rounded-circle" data-toggle="modal" data-target="#userTab">
                                 <i class="fa-solid fa-user "></i>
-                            </a>
+                            </button>
                         </li>
                         @else
                         <li class="nav-item ">
@@ -52,13 +53,17 @@
                         
                         @method('POST')
                         @csrf
+                        <div>
+                            <label for="email">E-mail</label>
+                            <input type="text" name="email">
+                        </div>
                         
-                        <label class="mr-4" for="email">E-mail</label>
-                        <input type="text" name="email"> <br>
-                        <label for="password">Password</label>
-                        <input type="password" name="password"> <br>
-                        <br>
-                        <input class="btn btn-blue" type="submit" value="Accedi">
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" name="password">
+                        </div>
+                    
+                        <input class="btn btn-blue btn_login" type="submit" value="Accedi">
                     </form>
 
                     <h2>Registrati</h2>
@@ -68,25 +73,25 @@
                         @csrf
         
                         <label for="name">Name</label>
-                        <input type="text" name="name"> <br>
+                        <input type="text" name="name">
         
                         <label for="last_name">Last Name</label>
-                        <input type="text" name="last_name"> <br>
+                        <input type="text" name="last_name">
         
                         <label for="email">E-mail</label>
-                        <input type="text" name="email"> <br>
+                        <input type="text" name="email">
         
                         <label for="birth_day">Birthday</label>
-                        <input type="date" name="birth_day"> <br>
+                        <input type="date" name="birth_day">
         
                         <label for="password">Password</label>
-                        <input type="password" name="password"> <br>
+                        <input type="password" name="password">
         
                         <label for="password_confirmation">Password confirm</label>
-                        <input type="password" name="password_confirmation"> <br>
+                        <input type="password" name="password_confirmation">
         
-                        <br>
-                        <input class="btn btn-blue" type="submit" value="Registrati">
+                        
+                        <input class="btn btn-blue btn_register" type="submit" value="Registrati">
         
                     </form>
                 </div>
@@ -96,4 +101,22 @@
             </div>
         </div>
     </div>
+
+    {{-- modal user dashboard/logout --}}
+      <div class="modal fade" id="userTab" tabindex="-1" role="dialog" aria-labelledby="userTabTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="userTabTitle">Pannello Utente</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body d-flex justify-content-around">
+              <a href="{{ route('user.dashboard') }}" class="btn btn-darkBlue">Dashboard</a>
+              <a class="btn btn-orange" href="{{ route('logout') }}">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
 </header>
