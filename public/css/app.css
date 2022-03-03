@@ -21248,6 +21248,20 @@ header .icon_container {
   height: 40px;
 }
 
+header label {
+  width: 40%;
+}
+
+header input {
+  width: 50%;
+}
+
+header .btn_login,
+header .btn_register {
+  width: 30%;
+  display: block;
+}
+
 .img_container {
   margin: auto;
   max-width: 900px;
