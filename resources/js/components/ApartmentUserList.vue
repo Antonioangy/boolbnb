@@ -3,11 +3,15 @@
 
         <!-- lista appartamenti dell'utenete loggato -->
         <ul>
-            <li v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
-                <a :href="`/apartment/show/${apartment.id}`">
+            <li class="list-unstyled d-flex" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
+                <h3 class="mr-3">
+                    <a :href="`/apartment/show/${apartment.id}`">
+                    <i class="fas fa-home"></i>
                     {{ apartment.title }}
                 </a>
-                <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-primary">Edit</a>
+                </h3>
+                
+                <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-primary mr-2">Edit</a>
                 <a :href="`/apartment/delete/${apartment.id}`" class="btn btn-danger">Delete</a>
             </li>
         </ul>
