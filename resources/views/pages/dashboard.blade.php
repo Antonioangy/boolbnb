@@ -25,23 +25,30 @@
                 I tuoi appartamenti:
             </h5>
             <apartment-user-list></apartment-user-list>
+
             {{-- Bottone creazione nuovo appartamento --}}
             <a class="btn btn-darkBlue" href="{{ route('apartment.create') }}">CREA UN NUOVO APPARTAMENTO</a>
             {{-- messaggi ricevuti da utenti  --}}
+
             <h5 class="mt-4">Messaggi ricevuti:</h5>
             <div class="d-flex flex-column-reverse">
                 @foreach ($obj as $item)
-                    <div>
-                        <div onclick="myFunction(this)"><h5><i class="fas fa-home"></i> Alloggio: {{$item -> apartment -> title}} <i class="fas fa-user"></i> Mittente: {{$item -> message -> sender}}</h5>
-                            <div id="commentoUtente" style="display:none"></div>
-                                <p class="m">Commento: {{$item -> message -> text}}</p>
-                                <p>inviato il {{$item -> message -> created_at -> format ('d/m/Y A h:i')}}</p>
-                            </div> 
-                        </div>
-                        <hr>
+                    
+                    <div onclick="myFunction(this)">
+                        <h5>
+                            <i class="fas fa-home"></i> 
+                            Alloggio: {{$item -> apartment -> title}} 
+                            <i class="fas fa-user"></i>
+                            Mittente: {{$item -> message -> sender}}
+                        </h5>
+                        <div id="commentoUtente" style="display:none">
+                            <p class="m">Commento: {{$item -> message -> text}}</p>
+                            <p>inviato il {{$item -> message -> created_at -> format ('d/m/Y A h:i')}}</p>
+                        </div> 
                     </div>
+                    <hr>
+                    
                 @endforeach
-                
             </div>
             
         @endauth

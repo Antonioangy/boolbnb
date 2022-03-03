@@ -22,6 +22,9 @@
 // header
 @import 'partials/header.scss';
 
+//show
+@import 'partials/show.scss';
+
 th, td {
     border: 1px solid black;
 }
@@ -37,4 +40,3 @@ ul {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
 }
-
