@@ -1992,6 +1992,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentUserList',
   data: function data() {
@@ -38311,31 +38315,50 @@ var render = function () {
     _c(
       "ul",
       _vm._l(_vm.apartmentsList, function (apartment, i) {
-        return _c("li", { key: "apartment-" + i }, [
-          _c("a", { attrs: { href: "/apartment/show/" + apartment.id } }, [
-            _vm._v(
-              "\n                " + _vm._s(apartment.title) + "\n            "
+        return _c(
+          "li",
+          {
+            key: "apartment-" + i,
+            staticClass: "list-unstyled d-flex align-items-center",
+          },
+          [
+            _c("h3", { staticClass: "m-3" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "text-decoration-none",
+                  attrs: { href: "/apartment/show/" + apartment.id },
+                },
+                [
+                  _c("i", { staticClass: "fas fa-home" }),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(apartment.title) +
+                      "\n                "
+                  ),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-blue mr-2",
+                attrs: { href: "/apartment/edit/" + apartment.id },
+              },
+              [_vm._v("Edit")]
             ),
-          ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-primary",
-              attrs: { href: "/apartment/edit/" + apartment.id },
-            },
-            [_vm._v("Edit")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-danger",
-              attrs: { href: "/apartment/delete/" + apartment.id },
-            },
-            [_vm._v("Delete")]
-          ),
-        ])
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-red",
+                attrs: { href: "/apartment/delete/" + apartment.id },
+              },
+              [_vm._v("Delete")]
+            ),
+          ]
+        )
       }),
       0
     ),

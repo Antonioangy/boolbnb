@@ -1,7 +1,7 @@
 <footer>
     <div class="container-fluid mt-5  border-top border-secondary bg-darkBlue text-white">
-        <div class="row">
-            <div class="col-xl-3">
+        <div class="row ">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mt-4">
                 <h3>Assistenza</h3>
                 <ul class="list-unstyled">
                     <li>
@@ -24,7 +24,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-xl-3">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mt-4">
                 <h3>Community</h3>
                 <ul class="list-unstyled">
                     <li>
@@ -38,7 +38,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-xl-3">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mt-4">
                 <h3>Ospitare</h3>
                 <ul class="list-unstyled">
                     <li>
@@ -58,7 +58,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-xl-3">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mt-4">
                 <h3>Informazioni</h3>
                 <ul class="list-unstyled">
                     <li>
