@@ -12,10 +12,7 @@
             
             <div class="row">
                 <div class="col-6">
-                <h3>Ciao {{ Auth::user() -> name }}!</h3>
-                </div>
-                <div class="col-6 d-flex justify-content-end">
-                <a class="btn btn-orange" href="{{ route('logout') }}">LOGOUT</a>
+                    <h3>Ciao {{ Auth::user() -> name }}!</h3>
                 </div>
             </div>
            
