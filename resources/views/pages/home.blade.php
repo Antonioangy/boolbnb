@@ -30,7 +30,7 @@
                 <p class="card-text text_clamp">
                     {{ $sponsoredApartment -> description }}
                 </p>
-                <a href="{{ route('apartment.show', $sponsoredApartment ->id) }}" class="btn btn-primary">
+                <a href="{{ route('apartment.show', $sponsoredApartment ->id) }}" class="btn btn-blue">
                     Vedi Appartamento
                 </a>
             </div>

@@ -15,7 +15,7 @@
                 <h3>Ciao {{ Auth::user() -> name }}!</h3>
                 </div>
                 <div class="col-6 d-flex justify-content-end">
-                <a class="btn btn-secondary" href="{{ route('logout') }}">LOGOUT</a>
+                <a class="btn btn-orange" href="{{ route('logout') }}">LOGOUT</a>
                 </div>
             </div>
            
@@ -26,7 +26,7 @@
             </h5>
             <apartment-user-list></apartment-user-list>
             {{-- Bottone creazione nuovo appartamento --}}
-            <button class="btn btn-darkBlue"><a href="{{ route('apartment.create') }}">CREA UN NUOVO APPARTAMENTO</a></button>
+            <a class="btn btn-darkBlue" href="{{ route('apartment.create') }}">CREA UN NUOVO APPARTAMENTO</a>
             {{-- messaggi ricevuti da utenti  --}}
             <h5 class="mt-4">Messaggi ricevuti:</h5>
             <div class="d-flex flex-column-reverse">

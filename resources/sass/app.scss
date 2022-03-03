@@ -13,6 +13,15 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+//jumbotron
+@import 'partials/jumbotron.scss';
+
+// footer
+@import 'partials/footer.scss';
+
+// header
+@import 'partials/header.scss';
+
 th, td {
     border: 1px solid black;
 }
@@ -29,9 +38,3 @@ ul {
     -webkit-line-clamp: 5;
 }
 
-//jumbotron
-@import 'partials/jumbotron.scss';
-
-
-// footer
-@import 'partials/footer.scss';

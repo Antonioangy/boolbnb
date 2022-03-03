@@ -7,7 +7,7 @@
                 <img class="w-50" src="{{asset('storage/images/boolbnb-logo.png')}}" alt="bnb logo">
             </a>
 
-            <div>
+            <div class="text-center">
                 {{-- nav hamburger menu  --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -15,12 +15,14 @@
                 {{-- lista link nav --}}
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active mx-2">
+                        <li class="nav-item active m-2">
                             <a class="btn btn-blue text-white" href="{{ route('home') }}">Home</a>
                         </li>
                         @auth
-                        <li class="nav-item rounded-circle border border-darkBlue">
-                            <a class="nav-link" href="{{ route('user.dashboard') }}"><i class="fa-solid fa-user text-darkBlue"></i></a>
+                        <li class="nav-item align-self-center">
+                            <a class="nav-link icon_container d-flex align-content-center justify-content-center text-darkBlue border border-darkBlue rounded-circle" href="{{ route('user.dashboard') }}">
+                                <i class="fa-solid fa-user "></i>
+                            </a>
                         </li>
                         @else
                         <li class="nav-item ">
@@ -46,17 +48,17 @@
                 </div>
                 <div class="modal-body">
                     <h2>Entra</h2>
-                    <form action="{{ route('login') }}" method="POST">
+                    <form action="{{ route('login') }}" method="POST" class="mb-5">
                         
                         @method('POST')
                         @csrf
                         
-                        <label for="email">E-mail</label>
+                        <label class="mr-4" for="email">E-mail</label>
                         <input type="text" name="email"> <br>
                         <label for="password">Password</label>
                         <input type="password" name="password"> <br>
                         <br>
-                        <input type="submit" value="LOGIN">
+                        <input class="btn btn-blue" type="submit" value="Accedi">
                     </form>
 
                     <h2>Registrati</h2>
@@ -84,21 +86,14 @@
                         <input type="password" name="password_confirmation"> <br>
         
                         <br>
-                        <input type="submit" value="REGISTER">
+                        <input class="btn btn-blue" type="submit" value="Registrati">
         
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-darkBlue" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-darkBlue" data-dismiss="modal">Chiudi</button>
                 </div>
             </div>
         </div>
     </div>
-
-    {{-- <a href="{{ route('home') }}">HOME</a> --}}
-    {{--@auth
-        <a href="{{ route('user.dashboard') }}">DASHBOARD</a>
-    @else
-        <a href="{{ route('access') }}">ACCEDI</a>
-    @endauth --}}
 </header>

@@ -4,7 +4,8 @@ footer {
         list-style: none;
 
         li:hover{
-            color: $grey
+            color: $grey;
+            cursor: pointer;
         }
     }
 }

@@ -3,16 +3,16 @@
 
         <!-- lista appartamenti dell'utenete loggato -->
         <ul>
-            <li class="list-unstyled d-flex" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
-                <h3 class="mr-3">
-                    <a :href="`/apartment/show/${apartment.id}`">
-                    <i class="fas fa-home"></i>
-                    {{ apartment.title }}
-                </a>
+            <li class="list-unstyled d-flex align-items-center" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
+                <h3 class="m-3">
+                    <a class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
+                        <i class="fas fa-home"></i>
+                        {{ apartment.title }}
+                    </a>
                 </h3>
                 
-                <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-primary mr-2">Edit</a>
-                <a :href="`/apartment/delete/${apartment.id}`" class="btn btn-danger">Delete</a>
+                <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-blue mr-2">Edit</a>
+                <a :href="`/apartment/delete/${apartment.id}`" class="btn btn-red">Delete</a>
             </li>
         </ul>
     </div>
