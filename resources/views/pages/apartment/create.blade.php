@@ -40,12 +40,12 @@
     
             <ul class="row">
 
-            @foreach ($services as $service)
-            
-                    <li class="list-group-item col-3">  <input type="checkbox" name="services[]" value="{{ $service -> id }}"> {{ $service -> name }}</li>
-               
+                @foreach ($services as $service)
+                
+                    <li class="list-group-item col-xl-3 col-lg-4 col-sm-6">  <input type="checkbox" name="services[]" value="{{ $service -> id }}"> {{ $service -> name }}</li>
+                
 
-            @endforeach <br>
+                @endforeach <br>
 
             </ul>
 

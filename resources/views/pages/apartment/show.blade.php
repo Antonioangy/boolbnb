@@ -18,9 +18,12 @@
             </h5>
         </div>
         {{-- SHOW APPARTAMENTO --}}
-        <div class="show_apartment w-100 h-100">
-            @if ($apartment->images)  
-                <img class="w-100" src="{{asset('storage/assets/'. $apartment->images)}}" alt="{{$apartment -> title}}">
+        <div class="show_apartment">
+            @if ($apartment->images) 
+                <div class="img_container">
+
+                    <img class="w-100" src="{{asset('storage/assets/'. $apartment->images)}}" alt="{{$apartment -> title}}">
+                </div>
             @endif
             <p>
                 {{ $apartment -> description }}
@@ -80,8 +83,13 @@
         </div>
     </div>
 
-    {{-- <apartment-map :lng="{{ $apartment -> longitude }}" :lat="{{ $apartment -> latitude }}"></apartment-map> --}}
-    
-    <a href="{{ route('home') }}">BACK</a>
+    <div 
+        @if ($apartment-> longitude)
+
+        <apartment-map :lng="{{ $apartment -> longitude }}" :lat="{{ $apartment -> latitude }}"></apartment-map>
+        
+        @endif>
+    </div>
+
     
 @endsection
