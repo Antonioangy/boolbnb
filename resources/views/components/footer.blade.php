@@ -2,7 +2,7 @@
     <div class="container text-white">
         <div class="row pt-4">
             <div class="col-md-12 col-lg-12">
-                <div class="row">
+                <div class="row m-4">
                     <div class="col-md-3 mb-md-0 mb-3 ">
                         <h2 class="footer-heading">Assistenza</h2>
                         <ul class="list-unstyled">
