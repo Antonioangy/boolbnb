@@ -8,43 +8,39 @@
     <main class="container-xl">
     
         @auth
-            
-            
-            <div class="row">
-                <div class="col-6">
-                    <h3>Ciao {{ Auth::user() -> name }}!</h3>
-                </div>
-            </div>
-           
-            
+        
+            <h3 class="text-center">Ciao {{ Auth::user() -> name }}!</h3>
+
             {{-- appartamenti dell'host --}}
-            <h5>
-                I tuoi appartamenti:
+            <h5 class="text-center">
+                <b>I tuoi appartamenti</b>
             </h5>
             <apartment-user-list></apartment-user-list>
 
             {{-- Bottone creazione nuovo appartamento --}}
-            <a class="btn btn-darkBlue" href="{{ route('apartment.create') }}">CREA UN NUOVO APPARTAMENTO</a>
-            {{-- messaggi ricevuti da utenti  --}}
+            <div class="text-center mt-4">
+                <a class="btn btn-darkBlue" href="{{ route('apartment.create') }}">CREA UN NUOVO APPARTAMENTO</a>
+            </div>
 
-            <h5 class="mt-4">Messaggi ricevuti:</h5>
-            <div class="d-flex flex-column-reverse">
+            {{-- messaggi ricevuti da utenti  --}}
+            <h5 class="mt-4 text-center"><b>Messaggi ricevuti</b></h5>
+            <div >
                 @foreach ($obj as $item)
-                    
-                    <div onclick="myFunction(this)">
-                        <h5>
+                    <div onclick="myFunction(this)" class="text-center">
+                        <div class="alloggio">
                             <i class="fas fa-home"></i> 
                             Alloggio: {{$item -> apartment -> title}} 
+                        </div>
+                        <div class="sender">
                             <i class="fas fa-user"></i>
                             Mittente: {{$item -> message -> sender}}
-                        </h5>
+                        </div>
                         <div id="commentoUtente" style="display:none">
-                            <p class="m">Commento: {{$item -> message -> text}}</p>
+                            <p class="m"><b>Commento:</b> {{$item -> message -> text}}</p>
                             <p>inviato il {{$item -> message -> created_at -> format ('d/m/Y A h:i')}}</p>
                         </div> 
                     </div>
                     <hr>
-                    
                 @endforeach
             </div>
             
