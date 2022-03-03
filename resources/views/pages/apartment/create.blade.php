@@ -17,7 +17,7 @@
         
         <div class="insert-container container-xl bg-darkBlue d-flex flex-column p-5 rounded">
             <h1 class="text-white">Inserisci nuovo appartamento</h1>
-
+            
             <input type="text" name="title" placeholder="Titolo" class="p-2 h5"> <br>
             
             <input type="text" name="description" placeholder="Descrizione" class="p-2 h5"><br>
