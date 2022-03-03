@@ -28,7 +28,7 @@
         </div>
         {{-- SERVIZI DISPONIBILI APPARTAMENTO --}}
         <div class="services mb-5">
-            <h3>Cosa troverai</h3>
+            <h3 class="text-center">Cosa troverai</h3>
             <span class="mx-2">
                 <i class="fa-solid fa-house"></i>: {{ $apartment -> rooms }}
             </span>
