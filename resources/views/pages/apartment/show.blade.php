@@ -28,9 +28,37 @@
             <p>
                 {{ $apartment -> description }}
             </p>
+            <div class="apartment_info text-center m-5">
+                <h3>Dettagli appartamento</h3>
+                <span class="mx-2">
+                    <i class="fa-solid fa-house"></i>: {{ $apartment -> rooms }}
+                </span>
+                <span class="mx-2">
+                    <i class="fa-solid fa-bed"></i>: {{ $apartment -> beds }}
+                </span>
+                <span class="mx-2">
+                    <i class="fa-solid fa-bath"></i>: {{ $apartment -> bathrooms }}
+                </span>
+                <span class="mx-2">
+                    <i class="fa-solid fa-square"></i>: {{ $apartment -> sq }} m<sup>2</sup>
+                </span>
+            </div>
         </div>
         {{-- SERVIZI DISPONIBILI APPARTAMENTO --}}
         <div class="services mb-5">
+            {{-- <h3 class="text-center">Cosa troverai</h3>
+            <span class="mx-2">
+                <i class="fa-solid fa-house"></i>: {{ $apartment -> rooms }}
+            </span>
+            <span class="mx-2">
+                <i class="fa-solid fa-bed"></i>: {{ $apartment -> beds }}
+            </span>
+            <span class="mx-2">
+                <i class="fa-solid fa-bath"></i>: {{ $apartment -> bathrooms }}
+            </span>
+            <span class="mx-2">
+                <i class="fa-solid fa-square"></i>: {{ $apartment -> sq }} m<sup>2</sup>
+            </span> --}}
             <h3 class="text-center">Cosa troverai</h3>
             <ul class="row">
                 @foreach ($apartment -> services as $apartmentService)       
