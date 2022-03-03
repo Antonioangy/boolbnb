@@ -20,6 +20,7 @@
                         </li>
                         @auth
                         <li class="nav-item align-self-center">
+                            {{-- pulsante pannello utente modal --}}
                             <button type="button" class="icon_container align-content-center justify-content-center text-darkBlue border border-darkBlue rounded-circle" data-toggle="modal" data-target="#userTab">
                                 <i class="fa-solid fa-user "></i>
                             </button>
@@ -52,13 +53,17 @@
                         
                         @method('POST')
                         @csrf
+                        <div>
+                            <label for="email">E-mail</label>
+                            <input type="text" name="email">
+                        </div>
                         
-                        <label class="mr-4" for="email">E-mail</label>
-                        <input type="text" name="email"> <br>
-                        <label for="password">Password</label>
-                        <input type="password" name="password"> <br>
-                        <br>
-                        <input class="btn btn-blue" type="submit" value="Accedi">
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" name="password">
+                        </div>
+                    
+                        <input class="btn btn-blue btn_login" type="submit" value="Accedi">
                     </form>
 
                     <h2>Registrati</h2>
@@ -68,25 +73,25 @@
                         @csrf
         
                         <label for="name">Name</label>
-                        <input type="text" name="name"> <br>
+                        <input type="text" name="name">
         
                         <label for="last_name">Last Name</label>
-                        <input type="text" name="last_name"> <br>
+                        <input type="text" name="last_name">
         
                         <label for="email">E-mail</label>
-                        <input type="text" name="email"> <br>
+                        <input type="text" name="email">
         
                         <label for="birth_day">Birthday</label>
-                        <input type="date" name="birth_day"> <br>
+                        <input type="date" name="birth_day">
         
                         <label for="password">Password</label>
-                        <input type="password" name="password"> <br>
+                        <input type="password" name="password">
         
                         <label for="password_confirmation">Password confirm</label>
-                        <input type="password" name="password_confirmation"> <br>
+                        <input type="password" name="password_confirmation">
         
-                        <br>
-                        <input class="btn btn-blue" type="submit" value="Registrati">
+                        
+                        <input class="btn btn-blue btn_register" type="submit" value="Registrati">
         
                     </form>
                 </div>
@@ -98,8 +103,6 @@
     </div>
 
     {{-- modal user dashboard/logout --}}
-      
-      <!-- Modal -->
       <div class="modal fade" id="userTab" tabindex="-1" role="dialog" aria-labelledby="userTabTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
