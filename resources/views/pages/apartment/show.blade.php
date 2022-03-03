@@ -20,8 +20,7 @@
         {{-- SHOW APPARTAMENTO --}}
         <div class="show_apartment">
             @if ($apartment->images) 
-                <div class="img_container">
-
+                <div class="img_container mb-4">
                     <img class="w-100" src="{{asset('storage/assets/'. $apartment->images)}}" alt="{{$apartment -> title}}">
                 </div>
             @endif
@@ -46,19 +45,6 @@
         </div>
         {{-- SERVIZI DISPONIBILI APPARTAMENTO --}}
         <div class="services mb-5">
-            {{-- <h3 class="text-center">Cosa troverai</h3>
-            <span class="mx-2">
-                <i class="fa-solid fa-house"></i>: {{ $apartment -> rooms }}
-            </span>
-            <span class="mx-2">
-                <i class="fa-solid fa-bed"></i>: {{ $apartment -> beds }}
-            </span>
-            <span class="mx-2">
-                <i class="fa-solid fa-bath"></i>: {{ $apartment -> bathrooms }}
-            </span>
-            <span class="mx-2">
-                <i class="fa-solid fa-square"></i>: {{ $apartment -> sq }} m<sup>2</sup>
-            </span> --}}
             <h3 class="text-center">Cosa troverai</h3>
             <ul class="row">
                 @foreach ($apartment -> services as $apartmentService)       
@@ -104,15 +90,5 @@
                 
             </form>
         </div>
-    </div>
-
-    <div 
-        @if ($apartment-> longitude)
-
-        <apartment-map :lng="{{ $apartment -> longitude }}" :lat="{{ $apartment -> latitude }}"></apartment-map>
-        
-        @endif>
-    </div>
-
-    
+    </div>    
 @endsection
