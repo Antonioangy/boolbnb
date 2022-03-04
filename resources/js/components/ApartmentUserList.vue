@@ -13,9 +13,33 @@
                         </h3>
                     </div>
                     <div class="col-6">
-                        <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-blue mr-2">Edit</a>
-                        <a :href="`/apartment/delete/${apartment.id}`" class="btn btn-red">Delete</a>
+                        <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-blue mr-2">Modifica</a>
+                        <!-- <a :href="`/apartment/delete/${apartment.id}`" class="btn btn-red">Delete</a> -->
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-red" data-toggle="modal" data-target="#confirmDelete" @click="saveId(apartment.id)">
+                            Cancella
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <i class="fa-solid fa-circle-exclamation text-red m-auto h1"></i>
+                                </div>
+                                <div class="modal-body">
+                                    <h5>Confermi di voler eliminare questo elemento?</h5>
+                                </div>
+                                <div class="modal-footer">
+                                    <a :href="`/apartment/delete/${savedId}`" class="btn btn-red">Conferma</a>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    </div>
+    
                 </li>
             </ul>
         </div>
@@ -28,7 +52,8 @@ export default {
     
     data() {
         return {
-            apartmentsList: []
+            apartmentsList: [],
+            savedId: 0
         }
     },
 
@@ -40,7 +65,12 @@ export default {
             .get(`/api/user/apartments/list`)
             .then(r => this.apartmentsList = r.data)
             .catch(e => console.error(e));
-        }
+        },
+
+        saveId(id) {
+            this.savedId = id;
+            console.log('savedId=',this.savedId);
+        },
     },
 
     mounted() {
