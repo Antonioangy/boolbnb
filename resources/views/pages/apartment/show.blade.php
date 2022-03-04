@@ -49,7 +49,7 @@
             <ul class="row justify-content-start text-center">
                 <h3 class="text-center col-xl-12">Cosa troverai</h3>
                 @foreach ($apartment -> services as $apartmentService)       
-                    <li class="list-group-item col-xl-4 text-center">  
+                    <li class="list-group-item col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center mt-2">  
                         {{ $apartmentService -> name}}
                     </li>
                 @endforeach <br>
