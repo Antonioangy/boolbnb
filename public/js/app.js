@@ -2109,7 +2109,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     saveId: function saveId(id) {
       this.savedId = id;
-      console.log('savedId=', this.savedId);
     }
   },
   mounted: function mounted() {
@@ -38604,7 +38603,7 @@ var render = function () {
                             _c(
                               "button",
                               {
-                                staticClass: "btn btn-secondary",
+                                staticClass: "btn btn-grey",
                                 attrs: {
                                   type: "button",
                                   "data-dismiss": "modal",

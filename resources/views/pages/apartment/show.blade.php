@@ -7,7 +7,7 @@
 
 @section('content')
 
-    <div class="container-xl d-flex flex-column align-items-center">
+    <div class="container-xl d-flex flex-column align-items-center my-5">
         {{-- TITOLO APPARTAMENTO, LOCALITA RECENSIONE --}}
         <div class="general_info align-self-start">
             <h3>
@@ -68,17 +68,17 @@
                 @csrf
     
                 <div class="form-group">
-                <label for="exampleFormControlInput1">Inserisci email</label>
-    
-                <input type="email" name="sender" class="form-control" id="exampleFormControlInput1" placeholder="insert your email"
-                @if (Auth::user())
-                    value="{{$user -> email}}"
-                @endif>
+                <label for="exampleFormControlInput1">Tua email</label>
+                    @if (Auth::user())
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$user -> email}}"> 
+                    @else
+                    <input type="email" name="sender" class="form-control" id="exampleFormControlInput1" placeholder="Inserisci la tua email"> 
+                    @endif
                 </div>
     
                 <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Inserisci il tuo messaggio</label>
-                  <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <label for="exampleFormControlTextarea1">Messaggio</label>
+                  <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Testo qui"></textarea>
                 </div>
     
 

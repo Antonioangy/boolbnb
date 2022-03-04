@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <a :href="`/apartment/delete/${savedId}`" class="btn btn-red">Conferma</a>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                                    <button type="button" class="btn btn-grey" data-dismiss="modal">Chiudi</button>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,6 @@ export default {
 
         saveId(id) {
             this.savedId = id;
-            console.log('savedId=',this.savedId);
         },
     },
 

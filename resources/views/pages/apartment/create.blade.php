@@ -7,6 +7,7 @@
 
 @section('content')
     <form 
+    class="my-5"
     enctype="multipart/form-data" 
     action="{{ route('apartment.store') }}" 
     method="POST">

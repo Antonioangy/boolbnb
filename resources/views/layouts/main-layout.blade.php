@@ -20,7 +20,9 @@
 </head>
 <body>
 
-    @if ($errors->any())
+    <div id="app">
+        @include('components.header')
+        @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -28,11 +30,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
-
-    <div id="app">
-        @include('components.header')
-
+        @endif
         @yield('content')
 
         @include('components.footer')

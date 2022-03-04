@@ -1,6 +1,7 @@
 @extends('layouts.main-layout')
 @section('content')
     <form 
+    class="my-5"
     enctype="multipart/form-data" 
     action="{{ route('apartment.update', $apartment -> id )}}" 
     method="POST">

@@ -1,7 +1,7 @@
 <header>
     <div>
         {{-- navbar header --}}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between flex-nowrap">
+        <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between flex-nowrap">
             {{-- logo --}}
             <a class="logo_container" href="{{ route('home') }}">
                 <img class="w-100" src="{{asset('storage/images/boolbnb-logo.png')}}" alt="bnb logo">
