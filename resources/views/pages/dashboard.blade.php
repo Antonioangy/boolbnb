@@ -23,8 +23,11 @@
             </div>
 
             {{-- messaggi ricevuti da utenti  --}}
-            <h5 class="mt-4 text-center"><b>Messaggi ricevuti</b></h5>
-            <div >
+            {{-- @if (count($obj)) --}}
+                <h5 class="mt-4 text-center"><b>Messaggi ricevuti</b></h5>
+            {{-- @endif --}}
+            
+            <div>
                 @foreach ($obj as $item)
                     <div onclick="myFunction(this)" class="text-center">
                         <div class="alloggio">

@@ -70,7 +70,7 @@
                 <div class="form-group">
                 <label for="exampleFormControlInput1">Tua email</label>
                     @if (Auth::user())
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$user -> email}}"> 
+                    <input type="email" name="sender" readonly class="form-control-plaintext" id="staticEmail" value="{{$user -> email}}"> 
                     @else
                     <input type="email" name="sender" class="form-control" id="exampleFormControlInput1" placeholder="Inserisci la tua email"> 
                     @endif
