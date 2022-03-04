@@ -21289,3 +21289,12 @@ ul {
   -webkit-line-clamp: 5;
 }
 
+.item {
+  width: 50%;
+  height: 700px;
+}
+
+.apartment {
+  overflow-y: scroll;
+}
+

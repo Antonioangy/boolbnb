@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'GuestController@home') -> name('home');
+Route::get('/apartments/results', 'GuestController@apartmentsResults') ->name('apartments.results');
 
 // ROTTE DI REGISTRAZIONE, LOGIN E LOGOUT
 Route::get('/logout', 'Auth\LoginController@logout') ->name('logout');
@@ -46,3 +47,4 @@ Route::middleware('auth')
     // lista appartamenti dell'utenete loggato
     Route::get('/user/apartments/list', 'ApiController@getApartmentUserList') -> name('user.apartments.list');
 }); 
+
