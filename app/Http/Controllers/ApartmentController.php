@@ -30,7 +30,6 @@ class ApartmentController extends Controller
 
     public function store(Request $request){
 
-        
         $data = $request->validate([
             'title' => 'string',
             'description' => 'string',
@@ -39,8 +38,10 @@ class ApartmentController extends Controller
             'bathrooms' => 'integer',
             'sq' => 'integer',
             'address' => 'string',
+            'latitude' => 'string',
+            'longitude' => 'string'
         ]);
-    
+
         $image = $request -> file('images');
 
         if ($image) {
@@ -104,6 +105,8 @@ class ApartmentController extends Controller
             'bathrooms' => 'integer',
             'sq' => 'integer',
             'address' => 'string',
+            'latitude' => 'float',
+            'longitude' => 'float'
         ]);
 
         $image = $request -> file('images');
@@ -178,5 +181,4 @@ class ApartmentController extends Controller
         return redirect()->route('apartment.show', $apartment->id);
     }
 
-    
 }

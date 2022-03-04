@@ -32,7 +32,8 @@
     
             <input type="file" name="images" class="text-white"><br>
     
-            <input type="text" name="address" placeholder="Address" class="p-2 h5"><br>
+            <address-geocode ></address-geocode>
+            
         </div>
 
         <div class="service-container container-xl d-flex flex-column p-5 rounded">
