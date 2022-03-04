@@ -21271,6 +21271,15 @@ header .btn_register {
   max-width: 900px;
 }
 
+.search_container {
+  width: 400px;
+}
+
+.search_container input {
+  height: 40px;
+  font-size: 20px;
+}
+
 th,
 td {
   border: 1px solid black;

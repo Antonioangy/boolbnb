@@ -7,8 +7,11 @@
 @section('content')
 
 {{-- jumbotron --}}
-<section id="jumbotron" class="mb-5">
+<section id="jumbotron" class="mb-5 d-flex">
     
+    <div class="search_container m-auto">
+        <apartments-search></apartments-search>
+    </div>
 
 </section>
 
