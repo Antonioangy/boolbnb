@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <main class="container-xl">
+    <main class="container-xl my-5">
     
         @auth
         
@@ -23,13 +23,13 @@
             </div>
 
             {{-- messaggi ricevuti da utenti  --}}
-            {{-- @if (count($obj)) --}}
+            @if (count($obj))
                 <h5 class="mt-4 text-center"><b>Messaggi ricevuti</b></h5>
-            {{-- @endif --}}
+            @endif
             
             <div>
                 @foreach ($obj as $item)
-                    <div onclick="myFunction(this)" class="text-center">
+                    <div class="text-center">
                         <div class="alloggio">
                             <i class="fas fa-home"></i> 
                             Alloggio: {{$item -> apartment -> title}} 
@@ -38,28 +38,15 @@
                             <i class="fas fa-user"></i>
                             Mittente: {{$item -> message -> sender}}
                         </div>
-                        <div id="commentoUtente" style="display:none">
-                            <p class="m"><b>Commento:</b> {{$item -> message -> text}}</p>
-                            <p>inviato il {{$item -> message -> created_at -> format ('d/m/Y A h:i')}}</p>
+                        <div id="commentoUtente">
+                            <p><b>Commento:</b> {{$item -> message -> text}}</p>
+                            <p>inviato il {{$item -> message -> created_at -> format ('d/m/Y - H:i')}}</p>
                         </div> 
+                        <hr>
                     </div>
-                    <hr>
                 @endforeach
             </div>
             
         @endauth
-            {{-- funzione per apparizione commento --}}
-        {{-- <script>
-            function myFunction(element) {
-                
-                x = element.lastChild;
-        
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
-        </script> --}}
     </main>
 @endsection
