@@ -26,4 +26,11 @@ class GuestController extends Controller
 
         return view('pages.home', compact('sponsoredApartments'));
     }
+
+    public function apartmentsResults() {
+
+        $apartments = Apartment::all();
+
+        return view('pages.apartmentsResults', compact('apartments'));
+    }
 }
