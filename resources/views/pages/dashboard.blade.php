@@ -46,7 +46,7 @@
             
         @endauth
             {{-- funzione per apparizione commento --}}
-        <script>
+        {{-- <script>
             function myFunction(element) {
                 
                 x = element.lastChild;
@@ -57,6 +57,6 @@
                 x.style.display = "none";
               }
             }
-        </script>
+        </script> --}}
     </main>
 @endsection

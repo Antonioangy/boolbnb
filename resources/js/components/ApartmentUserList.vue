@@ -1,9 +1,9 @@
 <template>
     <div class="container">
         <!-- lista appartamenti dell'utente loggato -->
-        <div class="row justify-content-center ">
+        <div>
             <ul>
-                <li class="list-unstyled d-flex align-items-center" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
+                <li class="list-unstyled d-flex align-items-center justify-content-between" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
                     <div class="col-9">
                         <h3 class="m-3">
                             <a class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
