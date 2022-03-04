@@ -105,8 +105,8 @@ class ApartmentController extends Controller
             'bathrooms' => 'integer',
             'sq' => 'integer',
             'address' => 'string',
-            'latitude' => 'float',
-            'longitude' => 'float'
+            'latitude' => 'string',
+            'longitude' => 'string'
         ]);
 
         $image = $request -> file('images');
