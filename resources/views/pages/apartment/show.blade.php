@@ -45,10 +45,11 @@
         </div>
         {{-- SERVIZI DISPONIBILI APPARTAMENTO --}}
         <div class="services mb-5">
-            <h3 class="text-center">Cosa troverai</h3>
-            <ul class="row">
+
+            <ul class="row justify-content-start text-center">
+                <h3 class="text-center col-xl-12">Cosa troverai</h3>
                 @foreach ($apartment -> services as $apartmentService)       
-                    <li class="list-group-item col-3">  
+                    <li class="list-group-item col-xl-4 text-center">  
                         {{ $apartmentService -> name}}
                     </li>
                 @endforeach <br>
