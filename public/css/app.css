@@ -21243,6 +21243,10 @@ footer ul li:hover {
   cursor: pointer;
 }
 
+header .logo_container {
+  max-width: 300px;
+}
+
 header .icon_container {
   width: 40px;
   height: 40px;

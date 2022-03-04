@@ -12,7 +12,7 @@
                             </a>
                         </h3>
                     </div>
-                    <div class="col-3">
+                    <div class="col-6">
                         <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-blue mr-2">Edit</a>
                         <a :href="`/apartment/delete/${apartment.id}`" class="btn btn-red">Delete</a>
                     </div>

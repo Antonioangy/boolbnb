@@ -3,8 +3,8 @@
         {{-- navbar header --}}
         <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between flex-nowrap">
             {{-- logo --}}
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <img class="w-50" src="{{asset('storage/images/boolbnb-logo.png')}}" alt="bnb logo">
+            <a class="logo_container" href="{{ route('home') }}">
+                <img class="w-100" src="{{asset('storage/images/boolbnb-logo.png')}}" alt="bnb logo">
             </a>
 
             <div class="text-center">
