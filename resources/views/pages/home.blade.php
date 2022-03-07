@@ -10,7 +10,11 @@
 <section id="jumbotron" class="mb-5 d-flex">
     
     <div class="search_container m-auto">
-        {{-- <apartments-search></apartments-search> --}}
+        <form action="{{ route('apartments.results') }}" method="POST">
+            @csrf
+            <input type="text" name="addressQuery" placeholder="Dove vuoi andare?">
+            <input type="submit" value="Cerca">
+        </form>
     </div>
 
 </section>

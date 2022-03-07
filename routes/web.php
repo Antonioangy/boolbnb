@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'GuestController@home') -> name('home');
-Route::get('/apartments/results/', 'GuestController@apartmentsResults') ->name('apartments.results');
+Route::post('/apartments/results/', 'GuestController@apartmentsResults') ->name('apartments.results');
 Route::get('/services/list', 'ApiController@getServices') ->name('services.list');
 
 // ricerca appartamenti

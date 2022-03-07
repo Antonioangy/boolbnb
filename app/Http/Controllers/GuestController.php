@@ -28,10 +28,11 @@ class GuestController extends Controller
         return view('pages.home', compact('sponsoredApartments'));
     }
 
-    public function apartmentsResults() {
+    public function apartmentsResults(Request $request) {
 
-            
-        return view('pages.apartmentsResults');
+        $addressQuery = $request->addressQuery;
+           
+        return view('pages.apartmentsResults', compact('addressQuery'));
     }
 
     
