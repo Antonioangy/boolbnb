@@ -6,7 +6,7 @@ Route::get('/', 'GuestController@home') -> name('home');
 Route::get('/apartments/results/', 'GuestController@apartmentsResults') ->name('apartments.results');
 
 // ricerca appartamenti
-Route::get('/apartments/search?lng={lng},lat={lat}&radius={radius}', 'ApiController@searchApartments') -> name('apartments.search');
+Route::get('/apartments/search/lng={lng}/lat={lat}/radius={radius}', 'ApiController@searchApartments') -> name('apartments.search');
 
 // ROTTE DI REGISTRAZIONE, LOGIN E LOGOUT
 Route::get('/logout', 'Auth\LoginController@logout') ->name('logout');

@@ -10,7 +10,7 @@
 <section id="jumbotron" class="mb-5 d-flex">
     
     <div class="search_container m-auto">
-        <apartments-search></apartments-search>
+        {{-- <apartments-search></apartments-search> --}}
     </div>
 
 </section>

@@ -6,6 +6,8 @@
 
 <script>
 export default {
+
+    name: 'SearchInMap',
     data() {
         return {
             apiKey: 'CCNCApHEo3ZS5ewtvHkSDu7hMeAY7sQc', //tua key personale da developer.tomtom

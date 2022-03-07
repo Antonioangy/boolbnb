@@ -3,6 +3,9 @@
 
 
 <div class="container-fluid">
+
+    <apartments-search></apartments-search>
+
     <h1>Lista appartamenti</h1>
     <div class="items d-flex mb-2">
         <div class="item apartment">

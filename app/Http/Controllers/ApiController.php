@@ -18,7 +18,7 @@ class ApiController extends Controller
     }
 
     // ricerca appartamenti
-    public function searchApartments($lng, $lat, $range) {
+    public function searchApartments($lng, $lat, $radius) {
 
         $apartments = Apartment::all();
         
@@ -27,7 +27,7 @@ class ApiController extends Controller
         foreach ($apartments as $apartment) {
 
             // raggio di ricarca default 20km
-            if ($this->haversineGreatCircleDistance($lat, $lng, $apartment->latitude, $apartment->longitude) < $range) {
+            if ($this->haversineGreatCircleDistance($lat, $lng, $apartment->latitude, $apartment->longitude) < $radius) {
                 array_push($apartmentsInRange, $apartment);
             }
         }
