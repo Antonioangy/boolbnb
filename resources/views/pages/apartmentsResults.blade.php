@@ -128,7 +128,7 @@
             </div>
         </div>
         <div class="item map">
-            <apartment-map></apartment-map>
+            <search-in-map></search-in-map>
         </div>
     </div>
 </div>
