@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'GuestController@home') -> name('home');
 Route::get('/apartments/results/', 'GuestController@apartmentsResults') ->name('apartments.results');
+Route::get('/services/list', 'ApiController@getServices') ->name('services.list');
 
 // ricerca appartamenti
-Route::get('/apartments/search/lng={lng}/lat={lat}/radius={radius}', 'ApiController@searchApartments') -> name('apartments.search');
+Route::get('/apartments/search/lng={lng}/lat={lat}/radius={radius}/rooms={nRooms}/beds={nBeds}', 'ApiController@searchApartments') -> name('apartments.search');
 
 // ROTTE DI REGISTRAZIONE, LOGIN E LOGOUT
 Route::get('/logout', 'Auth\LoginController@logout') ->name('logout');

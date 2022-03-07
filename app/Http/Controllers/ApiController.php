@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Apartment;
+use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
@@ -18,10 +20,19 @@ class ApiController extends Controller
     }
 
     // ricerca appartamenti
-    public function searchApartments($lng, $lat, $radius) {
+    public function searchApartments($lng, $lat, $radius, $nRooms, $nBeds) {
 
-        $apartments = Apartment::all();
+
+        $apartments = DB::table('apartments')
+                        -> where('rooms', '>=', $nRooms)
+                        -> where('beds', '>=', $nBeds)
+                        // -> join('apartment_service', 'apartments.id', '=', 'apartment_service.apartment_id')
+                        // -> join('services', 'services.id', '=', 'apartment_service.service_id')
+                        // // -> where('services.name', $selectedServices)
+                        // -> select('apartments.*', 'services.id as service_id', 'services.name as service_name')
+                        -> get();
         
+
         $apartmentsInRange = [];
 
         foreach ($apartments as $apartment) {
@@ -67,5 +78,13 @@ class ApiController extends Controller
         $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
             cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
         return $angle * $earthRadius;
+    }
+
+    public function getServices()
+    {
+
+        $services = Service::all();
+
+        return json_encode($services);
     }
 }

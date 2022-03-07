@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Apartment;
+use App\Service;
 use App\Sponsor;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,8 +30,9 @@ class GuestController extends Controller
 
     public function apartmentsResults() {
 
-        $apartments = Apartment::all();
-
-        return view('pages.apartmentsResults', compact('apartments'));
+            
+        return view('pages.apartmentsResults');
     }
+
+    
 }

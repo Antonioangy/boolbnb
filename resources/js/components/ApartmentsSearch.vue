@@ -2,7 +2,24 @@
     <div>
         <input type="text" v-model="addresToSearch" class="w-100" @keyup.enter="geocoding">
 
+        <label for="rooms">N. stanze</label>
+        <input type="number" v-model="nRooms" @keyup="getApartmentList">
+
+        <label for="beds">N. letti</label>
+        <input type="number" v-model="nBeds" @keyup="getApartmentList">
+
+        <!-- <label for="beds">Servizi</label>
+        <span v-for="service, i in servicesList" :key="`service-${i}`">
+            <input  type="checkbox" :name="service.name" :id="service.id" :value="service.name" v-model="selectedServices" @click="getApartmentList"> {{ service.name }}
+        </span>
+
+        <div>
+            {{ selectedServices }}
+        </div> -->
+
+        <label for="radius">Raggio di Ricerca</label>
         <input type="range" v-model="radius" min="0" max="20000" @click.left="getApartmentList">
+        {{ radius /1000 }} Km
 
         <h1>Lista appartamenti</h1>
 
@@ -14,7 +31,9 @@
                         <img class="rounded" :src="`/storage/assets/${apartment.images}`" alt="">
                     </div>
                     <div class="detail ml-2">
-                        <h3>{{ apartment.title }}</h3>
+                        <a class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
+                            <h3>{{ apartment.title }}</h3>
+                        </a>
                         <i class="fa-solid fa-star"></i>5.0  - {{ apartment.address }}
                         <div class="mt-2">
                             <p >Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -35,7 +54,7 @@
                 </div>
             </div>
             <div class="item map">
-                <SearchInMap/>
+                <!-- <SearchInMap/> -->
             </div>
         </div>
 
@@ -49,6 +68,7 @@ export default {
     components: {
         SearchInMap
     },
+    
     data() {
         return {
             addresToSearch: '',
@@ -57,7 +77,11 @@ export default {
             lng: '',
             lat: '',
             radius: 20000,
-            apartmentsList: []
+            nRooms: 1,
+            nBeds: 1,
+            apartmentsList: [],
+            // servicesList: [],
+            // selectedServices: []
         }
     },
     methods: {
@@ -79,14 +103,29 @@ export default {
         // chiamta axios per ottenere gli appartamneti filtrati
         getApartmentList() {
             axios
-            .get(`/apartments/search/lng=${this.lng}/lat=${this.lat}/radius=${this.radius}`)
+            .get(`/apartments/search/lng=${this.lng}/lat=${this.lat}/radius=${this.radius}/rooms=${this.nRooms}/beds=${this.nBeds}`)
             .then(res => {
                 this.apartmentsList = res.data;
                 console.log(res.data)
                 })
             .catch(err => console.error(err));
+        },
+
+        getServicesList() {
+            axios
+            .get('/services/list')
+            .then(res => {
+                
+                this.servicesList = res.data;
+                console.log(this.servicesList);
+            })
+            .catch(err => console.error(err));
         }
-    }
+    },
+    created() {
+        this.getServicesList();
+    },
+
 }
 </script>
 <style>
