@@ -52,4 +52,20 @@ ul {
 
 .apartment {
     overflow-y: scroll;
+    
+    .photo{
+
+        width: 200px;
+        height: 200px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: top;
+        }
+        .house_icon{
+            text-align: center;
+            font-size: 8em;
+        }
+    }
 }
