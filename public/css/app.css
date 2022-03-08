@@ -21326,3 +21326,7 @@ ul {
   font-size: 8em;
 }
 
+.hide {
+  display: none;
+}
+
