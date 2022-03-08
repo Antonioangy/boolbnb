@@ -8,7 +8,12 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Service;
 use App\Message;
+<<<<<<< HEAD
 use App\View;
+=======
+use Session;
+use Stripe;
+>>>>>>> sponsor-payment
 
 class ApartmentController extends Controller
 {
@@ -29,8 +34,7 @@ class ApartmentController extends Controller
         return view('pages.apartment.show', compact('apartment', 'user', 'services', 'views'));
     }
 
-    public function create()
-    {
+    public function create(){
 
         $services = Service::all();
 
@@ -88,8 +92,7 @@ class ApartmentController extends Controller
         return redirect()->route('apartment.show', $apartment -> id);
     }
 
-    public function edit($id)
-    {
+    public function edit($id){
         $apartment = Apartment::findOrFail($id);
 
         $services = Service::all();
@@ -103,8 +106,7 @@ class ApartmentController extends Controller
         }
     }
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
 
         $data = $request->validate([
             'title' => 'string',
@@ -151,8 +153,7 @@ class ApartmentController extends Controller
         return redirect()->route('apartment.show', $apartment->id);
     }
 
-    public function delete($id)
-    {
+    public function delete($id){
         $apartment = Apartment::findOrFail($id);
 
         if ($apartment -> user_id == Auth::user() -> id) {
@@ -188,6 +189,31 @@ class ApartmentController extends Controller
         $message -> save();
 
         return redirect()->route('apartment.show', $apartment->id);
+    }
+
+    /* sponsor */
+
+    public function sponsor($id) {
+        $apartment = Apartment::findOrFail($id);
+
+        return view('pages.apartment.sponsor', [
+        'apartment' => $apartment
+        ]);
+    }
+
+    public function sponsorCheckout(Request $request) {
+
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe\Charge::create ([
+                "amount" => $request -> amount * 100,
+                "currency" => "eur",
+                "source" => $request->stripeToken,
+                "description" => "Livello scelto: ". $request -> amount,
+        ]);
+  
+        Session::flash('success', 'Payment successful!');
+          
+        return back();
     }
 
 }
