@@ -9,8 +9,12 @@ export default {
 
     name: 'SearchInMap',
     props: {
-        // prendo le cordinate dell ricerca per spostare la mappas
-        center: Array
+
+        // prendo le coordinate della ricerca per spostare la mappa
+        center: Array,
+
+        // prendo coordinate degli appartamenti trovati
+        apartmentsFound: Array
     },
     
     data() {
@@ -23,43 +27,28 @@ export default {
 
     methods: {
 
+        // creazione mappa
         getMap() {
             let map = this.tt.map({
                 key: this.apiKey,
                 container: 'map',
                 center: this.center,
-                zoom: 13,
+                zoom: 12,
                 language: 'it-IT'
             });
+
+            // aggiunta controlli mappa
             map.addControl(new this.tt.FullscreenControl()); 
             map.addControl(new this.tt.NavigationControl());
-            // this.addMarker(map, this.center);
-            // this.search(map);
+
+            // aggiunta segnalini per ogni appartamento trovato
+            this.apartmentsFound.forEach(ele => {
+                console.log(ele);
+                this.addMarker(map, ele);
+            })
         },
 
-        // search(map) {
-
-        //     // tt.services.geometrySearch({s
-        //     //     key: this.apiKey,
-        //     //     geometryList: this.geometryList,
-        //     //     query: 'pizzeria',
-        //     //     // idxSet: 'PAD,Addr'
-        //     // }).then(r => console.log(r));
-
-        //     tt.services.nearbySearch({
-        //         key: this.apiKey,
-        //         center: this.coordinates,
-        //         radius: 20000,
-        //         limit: 30,
-        //         }).then(r => {
-        //             r.results.forEach(element => {
-        //                 // console.log(element.position)
-        //                 let position = element.position;
-        //                 this.addMarker(map, position);
-        //             });
-        //         });
-        // },
-
+        // metodo per aggiungere segnalino su mappa con fumetto indirizzo
         addMarker(map, coordinates) { 
             let popupOffset = 25; 
         
@@ -69,6 +58,7 @@ export default {
             marker.setPopup(popup); 
         },
 
+        // metodo calcolo indirizzo da coordinate 
         reverseGeocoding(marker, popup) { 
             this.tt.services.reverseGeocode({ 
             key: 'iTF86GRA2V5iGjM6LMMV54lrK8v6zC1w', 
@@ -82,8 +72,6 @@ export default {
 
     mounted() {
         this.getMap();
-        // this.search();
-        console.log('component mounted');
     }
 
 }

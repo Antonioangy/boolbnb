@@ -72,7 +72,7 @@
 
             <!-- mappa risultati -->
             <div class="item map">
-                <SearchInMap ref="map" :center="[this.lng, this.lat]"/>
+                <SearchInMap ref="map" :center="[this.lng, this.lat]" :apartmentsFound="this.apartmentsCoordinates"/>
             </div>
         </div>
 
@@ -100,6 +100,7 @@ export default {
             apartmentsList: [], // lista risultati
             // servicesList: [],
             // selectedServices: []
+            apartmentsCoordinates: [] // coordinate degli appartamenti trovati
         }
     },
 
@@ -111,7 +112,7 @@ export default {
 
     methods: {
 
-        // conversione indirizzo da cercato in coordinate
+        // conversione indirizzo cercato in coordinate
         geocoding() {
             this.tt.services.geocode({
                 key: this.apiKey,
@@ -124,7 +125,7 @@ export default {
                 this.getApartmentList();
 
                 // richiamo funzione in componente figlio (mappa)
-                setTimeout (() => this.$refs.map.getMap(), 200);
+                setTimeout (() => this.$refs.map.getMap(), 900);
             });
         },
 
@@ -134,7 +135,15 @@ export default {
             .get(`/apartments/search/lng=${this.lng}/lat=${this.lat}/radius=${this.radius}/rooms=${this.nRooms}/beds=${this.nBeds}`)
             .then(res => {
                 this.apartmentsList = res.data;
-                console.log(res.data)
+
+                // salvo coordinate degli appartamenti trovati per visualizzare la posizione sulla mappa
+                this.apartmentsList.forEach(ele => {
+                    let obj = {
+                        lng: ele.longitude,
+                        lat: ele.latitude
+                    }
+                    this.apartmentsCoordinates.push(obj);
+                    })
                 })
             .catch(err => console.error(err));
         },
@@ -143,17 +152,12 @@ export default {
         getServicesList() {
             axios
             .get('/services/list')
-            .then(res => {
-                
-                this.servicesList = res.data;
-                console.log(this.servicesList);
-            })
+            .then(res => this.servicesList = res.data)
             .catch(err => console.error(err));
         }
     },
 
     created() {
-        console.log(this.firstQuery);
         this.addresToSearch = this.firstQuery;
         this.geocoding();
         // this.getServicesList();
