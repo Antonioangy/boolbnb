@@ -14,7 +14,7 @@
                 {{ $apartment -> title }}
             </h3>
             <h5>
-                <i class="fa-solid fa-star"></i>5.0  - {{ $apartment -> address }}
+                <i class="fa-solid fa-star"></i>5.0  - {{ $apartment -> address }} - {{ $views }} views
             </h5>
         </div>
         {{-- SHOW APPARTAMENTO --}}
