@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Service;
 use App\Message;
 use App\View;
+use App\Sponsor;
 use Session;
 use Stripe;
 
@@ -198,7 +200,17 @@ class ApartmentController extends Controller
         ]);
     }
 
-    public function sponsorCheckout(Request $request) {
+    public function sponsorCheckout(Request $request, $id) {
+
+        $apartment = Apartment::findOrFail($id);
+
+        $standard = DB::table('sponsors')->where('duration', 24)->value('duration');
+        $premium = DB::table('sponsors')->where('duration', 72)->value('duration');
+        $elite = DB::table('sponsors')->where('duration', 144)->value('duration');
+
+        $standardRow = Sponsor::where('duration', 24)->get();
+        $premiumRow = Sponsor::where('duration', 72)->get();
+        $eliteRow = Sponsor::where('duration', 144)->get();
 
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         Stripe\Charge::create ([
@@ -208,8 +220,28 @@ class ApartmentController extends Controller
                 "description" => "Livello scelto: ". $request -> amount,
         ]);
   
-        Session::flash('success', 'Payment successful!');
-          
+        Session::flash('success', 'Pagamento avvenuto con successo!');
+
+        if ($request -> amount == 2.99) {
+            $level = $standard;
+            $sponsor = $standardRow;
+        }elseif ($request -> amount == 5.99) {
+            $level = $premium;
+            $sponsor = $premiumRow;
+        }else {
+            $level = $elite;
+            $sponsor = $eliteRow;
+        }
+
+        $now = date_create();
+        date_add($now, date_interval_create_from_date_string("$level hours"));
+        $expiration = date_format($now, 'Y-m-d H:i:s');
+
+        $apartment -> sponsor = 1;
+        $apartment -> save();
+        
+        $apartment -> sponsors() -> attach($sponsor,['end_date' => $expiration]);
+        
         return back();
     }
 

@@ -23,7 +23,7 @@
                         </div>
                     @endif
 
-                    <form role="form" action="{{ route('apartment.sponsor.checkout') }}" method="post" class="require-validation"
+                    <form role="form" action="{{ route('apartment.sponsor.checkout', $apartment -> id) }}" method="post" class="require-validation"
                     data-cc-on-file="false"
                     data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
                     id="payment-form">
@@ -44,7 +44,7 @@
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
                                 <label class='control-label'>Nome e Cognome</label> <input
-                                    class='form-control' size='4' type='text'>
+                                    class='form-control' size='4' type='text' value="test">
                             </div>
                         </div>
 
@@ -52,7 +52,7 @@
                             <div class='col-xs-12 form-group card required'>
                                 <label class='control-label'>Numero della Carta</label> <input
                                     autocomplete='off' class='form-control card-number' size='20'
-                                    type='text'>
+                                    type='text' value="4242 4242 4242 4242">
                             </div>
                         </div>
 
@@ -60,17 +60,17 @@
                             <div class='col-xs-12 col-md-4 form-group cvc required'>
                                 <label class='control-label'>CVV</label> <input autocomplete='off'
                                     class='form-control card-cvc' placeholder='ex. 311' size='4'
-                                    type='text'>
+                                    type='text' value="123">
                             </div>
                             <div class='col-xs-12 col-md-4 form-group expiration required'>
                                 <label class='control-label'>Mese di scadenza</label> <input
                                     class='form-control card-expiry-month' placeholder='MM' size='2'
-                                    type='text'>
+                                    type='text' value="02">
                             </div>
                             <div class='col-xs-12 col-md-4 form-group expiration required'>
                                 <label class='control-label'>Anno di scadenza</label> <input
                                     class='form-control card-expiry-year' placeholder='YYYY' size='4'
-                                    type='text'>
+                                    type='text' value="2024">
                             </div>
                         </div>
 
@@ -93,8 +93,10 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    
+        
     <script type="text/javascript">
     $(function() {
         var $form         = $(".require-validation");
@@ -107,7 +109,7 @@
             $errorMessage = $form.find('div.error'),
             valid         = true;
             $errorMessage.addClass('hide');
-    
+
             $('.has-error').removeClass('has-error');
         $inputs.each(function(i, el) {
         var $input = $(el);
@@ -117,7 +119,7 @@
             e.preventDefault();
         }
         });
-    
+
         if (!$form.data('cc-on-file')) {
         e.preventDefault();
         Stripe.setPublishableKey($form.data('stripe-publishable-key'));
@@ -128,7 +130,7 @@
             exp_year: $('.card-expiry-year').val()
         }, stripeResponseHandler);
         }
-    
+
     });
     function stripeResponseHandler(status, response) {
             if (response.error) {
@@ -145,7 +147,7 @@
                 $form.get(0).submit();
             }
         }
-    
+
     });
     </script>
 @endsection

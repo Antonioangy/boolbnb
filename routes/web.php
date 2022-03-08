@@ -39,7 +39,7 @@ Route::name('apartment.')
                         Route::post('/update/{id}', 'ApartmentController@update')->name('update');
                         Route::get('/delete/{id}', 'ApartmentController@delete')->name('delete');
                         Route::get('/sponsor/{id}', 'ApartmentController@sponsor')->name('sponsor');
-                        Route::post('/sponsor/checkout', 'ApartmentController@sponsorCheckout')->name('sponsor.checkout');
+                        Route::post('/sponsor/checkout/{id}', 'ApartmentController@sponsorCheckout')->name('sponsor.checkout');
                     });
         });
 

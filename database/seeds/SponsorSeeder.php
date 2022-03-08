@@ -30,8 +30,7 @@ class SponsorSeeder extends Seeder
         foreach ($apartments as $apartment) {  
 
             $randomSponsor = Sponsor::all()->random();
-            $randomSponsor -> apartments() -> attach($apartment, ['end_date' => '2022-02-08 15:47:45']);
-            
+            $randomSponsor -> apartments() -> attach($apartment);
         }
     }
 }

@@ -35,6 +35,6 @@
 
         @include('components.footer')
     </div>
-    
+    @yield('script')
 </body>
 </html>
