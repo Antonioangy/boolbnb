@@ -8,12 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Service;
 use App\Message;
-<<<<<<< HEAD
 use App\View;
-=======
 use Session;
 use Stripe;
->>>>>>> sponsor-payment
 
 class ApartmentController extends Controller
 {
