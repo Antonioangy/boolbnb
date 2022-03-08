@@ -21,7 +21,8 @@ export default {
         return {
             apiKey: 'CCNCApHEo3ZS5ewtvHkSDu7hMeAY7sQc', //tua key personale da developer.tomtom
             tt: window.tt,
-            coordinates: [12.395915,41.9102415],
+            map: [],
+            markers: [] // array segnalini
         }
     },
 
@@ -29,7 +30,7 @@ export default {
 
         // creazione mappa
         getMap() {
-            let map = this.tt.map({
+            this.map = this.tt.map({
                 key: this.apiKey,
                 container: 'map',
                 center: this.center,
@@ -38,24 +39,43 @@ export default {
             });
 
             // aggiunta controlli mappa
-            map.addControl(new this.tt.FullscreenControl()); 
-            map.addControl(new this.tt.NavigationControl());
+            this.map.addControl(new this.tt.FullscreenControl()); 
+            this.map.addControl(new this.tt.NavigationControl());
 
             // aggiunta segnalini per ogni appartamento trovato
-            this.apartmentsFound.forEach(ele => {
-                console.log(ele);
-                this.addMarker(map, ele);
-            })
+            // this.addMarker(map);
         },
 
         // metodo per aggiungere segnalino su mappa con fumetto indirizzo
-        addMarker(map, coordinates) { 
-            let popupOffset = 25; 
-        
-            var marker = new this.tt.Marker().setLngLat(coordinates).addTo(map); 
-            var popup = new this.tt.Popup({ offset: popupOffset }); 
-            this.reverseGeocoding(marker, popup); 
-            marker.setPopup(popup); 
+        addMarker() { 
+
+            this.clearMarkers();
+
+            this.apartmentsFound.forEach(ele => {
+
+                let popupOffset = 25; 
+                let marker = new this.tt.Marker().setLngLat(ele).addTo(this.map); 
+                this.markers.push(marker);
+                let popup = new this.tt.Popup({ offset: popupOffset }); 
+                this.reverseGeocoding(marker, popup); 
+                marker.setPopup(popup); 
+            })
+        },
+
+        // metodo per rimuovere segnalini dalla mappa
+        clearMarkers() {
+            this.markers.forEach(ele => {
+                ele.remove();
+            });
+            this.markers = [];
+        },
+
+        // sposta la mappa nella zona della ricerca
+        moveMap() {
+            this.map.flyTo({
+                center: this.center,
+                zoom: 12
+            })
         },
 
         // metodo calcolo indirizzo da coordinate 

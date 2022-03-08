@@ -5,11 +5,11 @@
 
         <!-- filtro numero minimo stanze -->
         <label for="rooms">N. stanze</label>
-        <input type="number" min="1" max="8" v-model="nRooms" @keyup="getApartmentList">
+        <input type="number" min="1" max="8" v-model="nRooms" @keyup="getApartmentList" @click="getApartmentList">
 
         <!-- filtro numero minimo letti -->
         <label for="beds">N. letti</label>
-        <input type="number" min="1" max="8" v-model="nBeds" @keyup="getApartmentList">
+        <input type="number" min="1" max="8" v-model="nBeds" @keyup="getApartmentList" @click="getApartmentList">
 
         <!-- <label for="beds">Servizi</label>
         <span v-for="service, i in servicesList" :key="`service-${i}`">
@@ -106,7 +106,7 @@ export default {
 
     props: {
 
-        // indirzzo inserito in homepaage
+        // indirizzo inserito in homepage
         firstQuery: String, 
     },
 
@@ -123,9 +123,7 @@ export default {
                 this.lng = res.position.lng;
                 this.lat = res.position.lat;
                 this.getApartmentList();
-
-                // richiamo funzione in componente figlio (mappa)
-                setTimeout (() => this.$refs.map.getMap(), 900);
+                
             });
         },
 
@@ -136,6 +134,9 @@ export default {
             .then(res => {
                 this.apartmentsList = res.data;
 
+                // svuoto array coordinate degli appartamenti trovati
+                this.apartmentsCoordinates = [];
+
                 // salvo coordinate degli appartamenti trovati per visualizzare la posizione sulla mappa
                 this.apartmentsList.forEach(ele => {
                     let obj = {
@@ -143,8 +144,10 @@ export default {
                         lat: ele.latitude
                     }
                     this.apartmentsCoordinates.push(obj);
-                    })
-                })
+                });
+                this.$refs.map.moveMap();
+                setTimeout(() => this.$refs.map.addMarker(), 500);
+            })
             .catch(err => console.error(err));
         },
 
@@ -160,6 +163,8 @@ export default {
     created() {
         this.addresToSearch = this.firstQuery;
         this.geocoding();
+        // richiamo funzione in componente figlio (mappa)
+        setTimeout (() => this.$refs.map.getMap(), 200);
         // this.getServicesList();
     },
 }
