@@ -14,12 +14,13 @@
                     </div>
                     <div class="col-6">
                         <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-blue mr-2">Modifica</a>
-                        <!-- <a :href="`/apartment/delete/${apartment.id}`" class="btn btn-red">Delete</a> -->
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-red" data-toggle="modal" data-target="#confirmDelete" @click="saveId(apartment.id)">
+                        <button type="button" class="btn btn-red mr-2" data-toggle="modal" data-target="#confirmDelete" @click="saveId(apartment.id)">
                             Cancella
                         </button>
+
+                        <a :href="`/apartment/sponsor/${apartment.id}`" class="btn btn-darkBlue">Sponsorizza</a>
 
                         <!-- Modal -->
                         <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
