@@ -16,6 +16,7 @@ class UserController extends Controller
         $apartments = Apartment::all();
 
         $user = Auth::user();
+        
 
         $obj = [];
 

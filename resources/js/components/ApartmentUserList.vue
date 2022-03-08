@@ -3,7 +3,7 @@
         <!-- lista appartamenti dell'utente loggato -->
         <div>
             <ul>
-                <li class="list-unstyled d-flex align-items-center justify-content-between" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
+                <li class="list-unstyled d-flex align-items-center justify-content-between row" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
                     <div class="col-9">
                         <h3 class="m-3">
                             <a class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
@@ -12,7 +12,7 @@
                             </a>
                         </h3>
                     </div>
-                    <div class="col-6">
+                    <div class="col-3">
                         <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-blue mr-2">Modifica</a>
                         <!-- <a :href="`/apartment/delete/${apartment.id}`" class="btn btn-red">Delete</a> -->
 

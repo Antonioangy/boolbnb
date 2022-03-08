@@ -2192,6 +2192,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2204,17 +2222,29 @@ __webpack_require__.r(__webpack_exports__);
       //tua key personale da developer.tomtom
       tt: window.tt,
       lng: '',
+      // longitudine ricerca
       lat: '',
+      // latitude ricerca
       radius: 20000,
+      // raggio ricerca
       nRooms: 1,
+      // numero minimo stanze
       nBeds: 1,
-      apartmentsList: [] // servicesList: [],
+      // numero minimo letti
+      apartmentsList: [],
+      // lista risultati
+      // servicesList: [],
       // selectedServices: []
+      apartmentsCoordinates: [] // coordinate degli appartamenti trovati
 
     };
   },
+  props: {
+    // indirzzo inserito in homepaage
+    firstQuery: String
+  },
   methods: {
-    // conversione indirizzo da cercato in cordinate
+    // conversione indirizzo cercato in coordinate
     geocoding: function geocoding() {
       var _this = this;
 
@@ -2227,33 +2257,47 @@ __webpack_require__.r(__webpack_exports__);
         _this.lng = res.position.lng;
         _this.lat = res.position.lat;
 
-        _this.getApartmentList();
+        _this.getApartmentList(); // richiamo funzione in componente figlio (mappa)
+
+
+        setTimeout(function () {
+          return _this.$refs.map.getMap();
+        }, 900);
       });
     },
-    // chiamta axios per ottenere gli appartamneti filtrati
+    // chiamata axios per ottenere gli appartamenti filtrati
     getApartmentList: function getApartmentList() {
       var _this2 = this;
 
       axios.get("/apartments/search/lng=".concat(this.lng, "/lat=").concat(this.lat, "/radius=").concat(this.radius, "/rooms=").concat(this.nRooms, "/beds=").concat(this.nBeds)).then(function (res) {
-        _this2.apartmentsList = res.data;
-        console.log(res.data);
+        _this2.apartmentsList = res.data; // salvo coordinate degli appartamenti trovati per visualizzare la posizione sulla mappa
+
+        _this2.apartmentsList.forEach(function (ele) {
+          var obj = {
+            lng: ele.longitude,
+            lat: ele.latitude
+          };
+
+          _this2.apartmentsCoordinates.push(obj);
+        });
       })["catch"](function (err) {
         return console.error(err);
       });
     },
+    // chiamata axios per ottenere lista sservizi
     getServicesList: function getServicesList() {
       var _this3 = this;
 
       axios.get('/services/list').then(function (res) {
-        _this3.servicesList = res.data;
-        console.log(_this3.servicesList);
+        return _this3.servicesList = res.data;
       })["catch"](function (err) {
         return console.error(err);
       });
     }
   },
   created: function created() {
-    this.getServicesList();
+    this.addresToSearch = this.firstQuery;
+    this.geocoding(); // this.getServicesList();
   }
 });
 
@@ -2276,70 +2320,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SearchInMap',
+  props: {
+    // prendo le coordinate della ricerca per spostare la mappa
+    center: Array,
+    // prendo coordinate degli appartamenti trovati
+    apartmentsFound: Array
+  },
   data: function data() {
     return {
       apiKey: 'CCNCApHEo3ZS5ewtvHkSDu7hMeAY7sQc',
       //tua key personale da developer.tomtom
       tt: window.tt,
-      coordinates: [12.395915, 41.9102415],
-      geometryList: [// {
-      //     type: 'POLYGON',
-      //     vertices: [
-      //     '37.7524152343544,-122.43576049804686',
-      //     '37.70660472542312,-122.43301391601562',
-      //     '37.712059855877314,-122.36434936523438',
-      //     '37.75350561243041,-122.37396240234374'
-      //     ]
-      // },
-      // {
-      //     type: 'CIRCLE',
-      //     position: '37.71205,-121.36434',
-      //     radius: 6000
-      // },
-      {
-        type: 'CIRCLE',
-        position: '12.395915,41.9102415',
-        radius: 20000
-      }]
+      coordinates: [12.395915, 41.9102415]
     };
   },
   methods: {
+    // creazione mappa
     getMap: function getMap() {
+      var _this = this;
+
       var map = this.tt.map({
         key: this.apiKey,
         container: 'map',
-        center: this.coordinates,
-        zoom: 14,
-        language: 'IT'
-      });
+        center: this.center,
+        zoom: 12,
+        language: 'it-IT'
+      }); // aggiunta controlli mappa
+
       map.addControl(new this.tt.FullscreenControl());
-      map.addControl(new this.tt.NavigationControl());
-      this.addMarker(map, this.coordinates);
-      this.search(map);
-    },
-    search: function search(map) {
-      var _this = this;
+      map.addControl(new this.tt.NavigationControl()); // aggiunta segnalini per ogni appartamento trovato
 
-      // tt.services.geometrySearch({s
-      //     key: this.apiKey,
-      //     geometryList: this.geometryList,
-      //     query: 'pizzeria',
-      //     // idxSet: 'PAD,Addr'
-      // }).then(r => console.log(r));
-      tt.services.nearbySearch({
-        key: this.apiKey,
-        center: this.coordinates,
-        radius: 20000,
-        limit: 30
-      }).then(function (r) {
-        r.results.forEach(function (element) {
-          // console.log(element.position)
-          var position = element.position;
+      this.apartmentsFound.forEach(function (ele) {
+        console.log(ele);
 
-          _this.addMarker(map, position);
-        });
+        _this.addMarker(map, ele);
       });
     },
+    // metodo per aggiungere segnalino su mappa con fumetto indirizzo
     addMarker: function addMarker(map, coordinates) {
       var popupOffset = 25;
       var marker = new this.tt.Marker().setLngLat(coordinates).addTo(map);
@@ -2349,20 +2366,18 @@ __webpack_require__.r(__webpack_exports__);
       this.reverseGeocoding(marker, popup);
       marker.setPopup(popup);
     },
+    // metodo calcolo indirizzo da coordinate 
     reverseGeocoding: function reverseGeocoding(marker, popup) {
       this.tt.services.reverseGeocode({
         key: 'iTF86GRA2V5iGjM6LMMV54lrK8v6zC1w',
         position: marker.getLngLat()
       }).then(function (result) {
-        // console.log(result.addresses[0].address.freeformAddress); 
         popup.setHTML(result.addresses[0].address.freeformAddress);
       });
     }
   },
   mounted: function mounted() {
-    this.getMap(); // this.search();
-
-    console.log('component mounted');
+    this.getMap();
   }
 });
 
@@ -6766,7 +6781,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#map {\r\n  height: 50vh;\r\n  width: 50vw;\n}\r\n", ""]);
+exports.push([module.i, "\n#map {\r\n  height: 100%;\r\n  width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -38773,7 +38788,7 @@ var render = function () {
             {
               key: "apartment-" + i,
               staticClass:
-                "list-unstyled d-flex align-items-center justify-content-between",
+                "list-unstyled d-flex align-items-center justify-content-between row",
             },
             [
               _c("div", { staticClass: "col-9" }, [
@@ -38796,7 +38811,7 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-6" }, [
+              _c("div", { staticClass: "col-3" }, [
                 _c(
                   "a",
                   {
@@ -38975,7 +38990,7 @@ var render = function () {
           expression: "nRooms",
         },
       ],
-      attrs: { type: "number" },
+      attrs: { type: "number", min: "1", max: "8" },
       domProps: { value: _vm.nRooms },
       on: {
         keyup: _vm.getApartmentList,
@@ -38999,7 +39014,7 @@ var render = function () {
           expression: "nBeds",
         },
       ],
-      attrs: { type: "number" },
+      attrs: { type: "number", min: "1", max: "8" },
       domProps: { value: _vm.nBeds },
       on: {
         keyup: _vm.getApartmentList,
@@ -39116,7 +39131,20 @@ var render = function () {
         0
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "item map" }),
+      _c(
+        "div",
+        { staticClass: "item map" },
+        [
+          _c("SearchInMap", {
+            ref: "map",
+            attrs: {
+              center: [this.lng, this.lat],
+              apartmentsFound: this.apartmentsCoordinates,
+            },
+          }),
+        ],
+        1
+      ),
     ]),
   ])
 }
