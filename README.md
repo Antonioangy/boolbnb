@@ -7,7 +7,7 @@
 > l'utente registrato ha la possibilità di fare tutto ciò che può fare l'utente non registrato, con la differenza che può aggiungere appartamenti, ricevere i messaggi dai vari utenti, editare il proprio appartamento, eliminarlo e nel caso, poterlo sponsorizzare con uno dei 3 abbonamenti messi a disposizione dal sito, per mostrarlo sulla pagina principale.
 
 
-per il progetto abbiamo utilizzato varie tecnologie, come ad esempio le varie funzionalità che laravel che ci mette a disposizione.
+per il progetto abbiamo utilizzato varie tecnologie, come ad esempio le varie funzionalità che laravel ci mette a disposizione.
 - utilizzo di phpMyAdmin per il database;
 - utilizzo del framework boostrap per la struttura dell'interfaccia;
 - utilizzo dell'api di tomtom per la ricerca degli appartamenti nella zona richiesta, con la possibilità di filtrare per range e servizi;
