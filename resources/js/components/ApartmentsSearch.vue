@@ -41,11 +41,18 @@
 
                         <!-- titolo appartamento e link a pagina di dettaglio -->
                         <a class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
-                            <h3>{{ apartment.title }}</h3>
+                            <h3>
+                                {{ apartment.title }} 
+                                <i class="fa-solid fa-star text-orange" v-show="apartment.sponsor"></i>
+                            </h3>
                         </a>
 
                         <!-- indirizzo appartamento -->
-                        <i class="fa-solid fa-star"></i>5.0  - {{ apartment.address }}
+                        <span>
+                            {{ apartment.address }}
+                        </span>
+
+                        <!-- descrizione appartamento  -->
                         <div class="mt-2">
                             <p >Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
