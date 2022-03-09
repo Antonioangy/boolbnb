@@ -4,43 +4,54 @@
         <div>
             <ul>
                 <li class="list-unstyled d-flex align-items-center justify-content-between row" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
-                    <div class="col-9">
-                        <h3 class="m-3">
-                            <a class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
-                                <i class="fas fa-home"></i>
-                                {{ apartment.title }}
-                            </a>
-                        </h3>
+                    <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                        <div class="d-flex justify-content-between">
+                            <h3 class="m-3">
+                                <a v-if="!apartment.sponsor" class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
+                                    <i class="fa-solid fa-star invisible"></i>
+                                    <i class="fas fa-home"></i>
+                                    {{ apartment.title }}
+                                </a>
+                                <a v-else class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
+                                    <i class="fa-solid fa-star text-orange"></i>
+                                    <i class="fas fa-home"></i>
+                                    {{ apartment.title }} 
+                                </a>
+                            </h3>
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-blue mr-2">Modifica</a>
+                    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                        <div>
+                            <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-blue mt-md-2 mt-sm-2">Modifica</a> 
 
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-red mr-2" data-toggle="modal" data-target="#confirmDelete" @click="saveId(apartment.id)">
-                            Cancella
-                        </button>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-red mt-md-2 mt-sm-2" data-toggle="modal" data-target="#confirmDelete" @click="saveId(apartment.id)">
+                                Cancella
+                            </button>
+                            
+                            <a v-if="!apartment.sponsor" :href="`/apartment/sponsor/${apartment.id}`" class="btn btn-darkBlue mt-md-2 mt-sm-2">Sponsorizza</a>
+                            <a v-else :href="`/apartment/sponsor/${apartment.id}`" class="btn btn-darkBlue mt-md-2 mt-sm-2">Estendi sponsor</a>
+                        </div>
 
-                        <a :href="`/apartment/sponsor/${apartment.id}`" class="btn btn-darkBlue">Sponsorizza</a>
 
                         <!-- Modal -->
                         <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <i class="fa-solid fa-circle-exclamation text-red m-auto h1"></i>
-                                </div>
-                                <div class="modal-body">
-                                    <h5>Confermi di voler eliminare questo elemento?</h5>
-                                </div>
-                                <div class="modal-footer">
-                                    <a :href="`/apartment/delete/${savedId}`" class="btn btn-red">Conferma</a>
-                                    <button type="button" class="btn btn-grey" data-dismiss="modal">Chiudi</button>
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <i class="fa-solid fa-circle-exclamation text-red m-auto h1"></i>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5>Confermi di voler eliminare questo elemento?</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a :href="`/apartment/delete/${savedId}`" class="btn btn-red">Conferma</a>
+                                        <button type="button" class="btn btn-grey" data-dismiss="modal">Chiudi</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </div>
-    
                 </li>
             </ul>
         </div>
