@@ -8,12 +8,13 @@
 
 {{-- jumbotron --}}
 <section id="jumbotron" class="mb-5 d-flex">
-    
     <div class="search_container m-auto">
         <form action="{{ route('apartments.results') }}" method="POST">
             @csrf
-            <input type="text" name="addressQuery" placeholder="Dove vuoi andare?">
-            <input type="submit" value="Cerca">
+                <div class="input-group">
+                    <input type="search" class="form-control rounded" placeholder="dove vuoi andare?" aria-label="Search" aria-describedby="search-addon" />
+                    <button type="button" class="btn bg-light"><i class="fa fa-search"></i></button>
+                </div>
         </form>
     </div>
 
