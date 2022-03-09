@@ -5,17 +5,20 @@
             <ul>
                 <li class="list-unstyled d-flex align-items-center justify-content-between row" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
                     <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
-                        <h3 class="m-3">
-                            <a v-if="!apartment.sponsor" class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
-                                <i class="fas fa-home"></i>
-                                {{ apartment.title }}
-                            </a>
-                            <a v-else class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
-                                <i class="fa-solid fa-star text-orange"></i>
-                                <i class="fas fa-home"></i>
-                                {{ apartment.title }} 
-                            </a>
-                        </h3>
+                        <div class="d-flex justify-content-between">
+                            <h3 class="m-3">
+                                <a v-if="!apartment.sponsor" class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
+                                    <i class="fa-solid fa-star invisible"></i>
+                                    <i class="fas fa-home"></i>
+                                    {{ apartment.title }}
+                                </a>
+                                <a v-else class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
+                                    <i class="fa-solid fa-star text-orange"></i>
+                                    <i class="fas fa-home"></i>
+                                    {{ apartment.title }} 
+                                </a>
+                            </h3>
+                        </div>
                     </div>
                     <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                         <div>
