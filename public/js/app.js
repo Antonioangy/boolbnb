@@ -2089,6 +2089,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentUserList',
   data: function data() {
@@ -2130,6 +2141,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SearchInMap_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/SearchInMap.vue */ "./resources/js/components/SearchInMap.vue");
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38872,122 +38890,175 @@ var render = function () {
                 "list-unstyled d-flex align-items-center justify-content-between row",
             },
             [
-              _c("div", { staticClass: "col-9" }, [
-                _c("h3", { staticClass: "m-3" }, [
+              _c(
+                "div",
+                { staticClass: "col-xl-8 col-lg-12 col-md-12 col-sm-12" },
+                [
+                  _c("div", { staticClass: "d-flex justify-content-between" }, [
+                    _c("h3", { staticClass: "m-3" }, [
+                      !apartment.sponsor
+                        ? _c(
+                            "a",
+                            {
+                              staticClass: "text-decoration-none",
+                              attrs: {
+                                href: "/apartment/show/" + apartment.id,
+                              },
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fa-solid fa-star invisible",
+                              }),
+                              _vm._v(" "),
+                              _c("i", { staticClass: "fas fa-home" }),
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(apartment.title) +
+                                  "\n                            "
+                              ),
+                            ]
+                          )
+                        : _c(
+                            "a",
+                            {
+                              staticClass: "text-decoration-none",
+                              attrs: {
+                                href: "/apartment/show/" + apartment.id,
+                              },
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fa-solid fa-star text-orange",
+                              }),
+                              _vm._v(" "),
+                              _c("i", { staticClass: "fas fa-home" }),
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(apartment.title) +
+                                  " \n                            "
+                              ),
+                            ]
+                          ),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-xl-4 col-lg-12 col-md-12 col-sm-12" },
+                [
+                  _c("div", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-blue mt-md-2 mt-sm-2",
+                        attrs: { href: "/apartment/edit/" + apartment.id },
+                      },
+                      [_vm._v("Modifica")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-red mt-md-2 mt-sm-2",
+                        attrs: {
+                          type: "button",
+                          "data-toggle": "modal",
+                          "data-target": "#confirmDelete",
+                        },
+                        on: {
+                          click: function ($event) {
+                            return _vm.saveId(apartment.id)
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Cancella\n                        "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    !apartment.sponsor
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-darkBlue mt-md-2 mt-sm-2",
+                            attrs: {
+                              href: "/apartment/sponsor/" + apartment.id,
+                            },
+                          },
+                          [_vm._v("Sponsorizza")]
+                        )
+                      : _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-darkBlue mt-md-2 mt-sm-2",
+                            attrs: {
+                              href: "/apartment/sponsor/" + apartment.id,
+                            },
+                          },
+                          [_vm._v("Estendi sponsor")]
+                        ),
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "a",
+                    "div",
                     {
-                      staticClass: "text-decoration-none",
-                      attrs: { href: "/apartment/show/" + apartment.id },
+                      staticClass: "modal fade",
+                      attrs: {
+                        id: "confirmDelete",
+                        tabindex: "-1",
+                        role: "dialog",
+                        "aria-labelledby": "confirmDeleteLabel",
+                        "aria-hidden": "true",
+                      },
                     },
                     [
-                      _c("i", { staticClass: "fas fa-home" }),
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(apartment.title) +
-                          "\n                        "
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog",
+                          attrs: { role: "document" },
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _vm._m(0, true),
+                            _vm._v(" "),
+                            _vm._m(1, true),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-footer" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-red",
+                                  attrs: {
+                                    href: "/apartment/delete/" + _vm.savedId,
+                                  },
+                                },
+                                [_vm._v("Conferma")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-grey",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal",
+                                  },
+                                },
+                                [_vm._v("Chiudi")]
+                              ),
+                            ]),
+                          ]),
+                        ]
                       ),
                     ]
                   ),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-3" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-blue mr-2",
-                    attrs: { href: "/apartment/edit/" + apartment.id },
-                  },
-                  [_vm._v("Modifica")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-red mr-2",
-                    attrs: {
-                      type: "button",
-                      "data-toggle": "modal",
-                      "data-target": "#confirmDelete",
-                    },
-                    on: {
-                      click: function ($event) {
-                        return _vm.saveId(apartment.id)
-                      },
-                    },
-                  },
-                  [
-                    _vm._v(
-                      "\n                        Cancella\n                    "
-                    ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-darkBlue",
-                    attrs: { href: "/apartment/sponsor/" + apartment.id },
-                  },
-                  [_vm._v("Sponsorizza")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "modal fade",
-                    attrs: {
-                      id: "confirmDelete",
-                      tabindex: "-1",
-                      role: "dialog",
-                      "aria-labelledby": "confirmDeleteLabel",
-                      "aria-hidden": "true",
-                    },
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "modal-dialog",
-                        attrs: { role: "document" },
-                      },
-                      [
-                        _c("div", { staticClass: "modal-content" }, [
-                          _vm._m(0, true),
-                          _vm._v(" "),
-                          _vm._m(1, true),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "modal-footer" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-red",
-                                attrs: {
-                                  href: "/apartment/delete/" + _vm.savedId,
-                                },
-                              },
-                              [_vm._v("Conferma")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-grey",
-                                attrs: {
-                                  type: "button",
-                                  "data-dismiss": "modal",
-                                },
-                              },
-                              [_vm._v("Chiudi")]
-                            ),
-                          ]),
-                        ]),
-                      ]
-                    ),
-                  ]
-                ),
-              ]),
+                ]
+              ),
             ]
           )
         }),
@@ -39189,15 +39260,36 @@ var render = function () {
                     staticClass: "text-decoration-none",
                     attrs: { href: "/apartment/show/" + apartment.id },
                   },
-                  [_c("h3", [_vm._v(_vm._s(apartment.title))])]
+                  [
+                    _c("h3", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(apartment.title) +
+                          " \n                            "
+                      ),
+                      _c("i", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: apartment.sponsor,
+                            expression: "apartment.sponsor",
+                          },
+                        ],
+                        staticClass: "fa-solid fa-star text-orange",
+                      }),
+                    ]),
+                  ]
                 ),
                 _vm._v(" "),
-                _c("i", { staticClass: "fa-solid fa-star" }),
-                _vm._v(
-                  "5.0  - " +
-                    _vm._s(apartment.address) +
-                    "\n                    "
-                ),
+                _c("span", [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(apartment.address) +
+                      "\n                    "
+                  ),
+                ]),
+                _vm._v(" "),
                 _vm._m(0, true),
                 _vm._v(" "),
                 _c("span", { staticClass: "mx-2" }, [
@@ -52023,8 +52115,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean Esercizi\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean Esercizi\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Antonino\Desktop\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Antonino\Desktop\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
