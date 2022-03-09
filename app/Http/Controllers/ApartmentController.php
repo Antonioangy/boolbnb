@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Service;
 use App\Message;
 use App\View;
@@ -202,9 +203,9 @@ class ApartmentController extends Controller
 
         $apartment = Apartment::findOrFail($id);
 
-        $standard = Sponsor::where('duration', 24)->first()->value('duration');
-        $premium = Sponsor::where('duration', 72)->first()->value('duration');
-        $elite = Sponsor::where('duration', 144)->first()->value('duration');
+        $standard = DB::table('sponsors')->where('duration', 24)->value('duration');
+        $premium = DB::table('sponsors')->where('duration', 72)->value('duration');
+        $elite = DB::table('sponsors')->where('duration', 144)->value('duration');
 
         $standardRow = Sponsor::where('duration', 24)->get();
         $premiumRow = Sponsor::where('duration', 72)->get();
