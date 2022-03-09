@@ -72,24 +72,25 @@
                         @method('POST')
                         @csrf
         
-                        <label for="name">Name</label>
+                        <label for="name">Name &ast;</label>
                         <input type="text" name="name">
         
                         <label for="last_name">Last Name</label>
                         <input type="text" name="last_name">
         
-                        <label for="email">E-mail</label>
+                        <label for="email">E-mail &ast;</label>
                         <input type="text" name="email">
         
                         <label for="birth_day">Birthday</label>
                         <input type="date" name="birth_day">
         
-                        <label for="password">Password</label>
+                        <label for="password">Password &ast;</label>
                         <input type="password" name="password">
         
-                        <label for="password_confirmation">Password confirm</label>
+                        <label for="password_confirmation">Password confirm &ast;</label>
                         <input type="password" name="password_confirmation">
-        
+                        
+                        <div class="font-italic h6 my-3">&ast; I campi contrassegnati sono obbligatori</div>
                         
                         <input class="btn btn-blue btn_register" type="submit" value="Registrati">
         

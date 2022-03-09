@@ -28,17 +28,16 @@ class ApiController extends Controller
                         -> where('beds', '>=', $nBeds)
                         // -> join('apartment_service', 'apartments.id', '=', 'apartment_service.apartment_id')
                         // -> join('services', 'services.id', '=', 'apartment_service.service_id')
-                        // -> where('services.name', $selectedServices)
-                        // -> select('apartments.*', 'services.id as service_id', 'services.name as service_name')
+                        //  -> where('services.name', $selectedServices)
+                        // -> select('apartments.*') -> distinct()
                         -> orderBy('sponsor', 'desc')
                         -> get();
         
-
         $apartmentsInRange = [];
 
         foreach ($apartments as $apartment) {
 
-            // raggio di ricarca default 20km
+            // raggio di ricerca default 20km
             if ($this->haversineGreatCircleDistance($lat, $lng, $apartment->latitude, $apartment->longitude) < $radius) {
                 array_push($apartmentsInRange, $apartment);
             }
