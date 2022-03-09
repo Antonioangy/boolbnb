@@ -28,8 +28,9 @@ class ApiController extends Controller
                         -> where('beds', '>=', $nBeds)
                         // -> join('apartment_service', 'apartments.id', '=', 'apartment_service.apartment_id')
                         // -> join('services', 'services.id', '=', 'apartment_service.service_id')
-                        // // -> where('services.name', $selectedServices)
+                        // -> where('services.name', $selectedServices)
                         // -> select('apartments.*', 'services.id as service_id', 'services.name as service_name')
+                        -> orderBy('sponsor', 'desc')
                         -> get();
         
 
