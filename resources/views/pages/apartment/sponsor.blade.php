@@ -5,25 +5,33 @@
 
 @section('content')
     <div class="container my-5">
-        <h1><b>Sponsorizza : </b>{{$apartment -> title}}</h1>
-        <div class="row my-5">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-default credit-card-box">
-                    <div class="panel-heading display-table" >
-                        <div class="row display-tr" >
-                            <h3 class="panel-title display-td">Dettagli Pagamento</h3>
-                        </div>                    
+        <h1>{{$apartment -> title}}</h1>
+        <div class="row pay_sponsor">
+            <div class="col-xl-4 left">
+                <div class="photo">
+                    <img src="{{asset('storage/assets/'. $apartment->images)}}" alt="">
+                </div>
+                <div class="d-flex justify-content-between">
+                    <span>Citta:</span>
+                    <span><b>{{ $apartment -> address }}</b></span>
+                </div>
+                @if (Session::has('success'))
+                    <div class="alert alert-success text-center">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                        <p>{{ Session::get('success') }}</p>
                     </div>
-                    <div class="panel-body">
-
-                    @if (Session::has('success'))
-                        <div class="alert alert-success text-center">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                            <p>{{ Session::get('success') }}</p>
-                        </div>
-                    @endif
-
-                    <form role="form" action="{{ route('apartment.sponsor.checkout', $apartment -> id) }}" method="post" class="require-validation"
+                @endif
+            </div>
+            <div class="col-xl-8">
+                <h1>Dai maggiore visibilità al tuo appartamento</h1>
+                <h3>Basic</h3>
+                <span>Metti in evidenza il tuo appartamento per <b>1</b> giorno.</span>
+                <h3>Advanced</h3>
+                <span>Metti in evidenza il tuo appartamento per <b>3</b> giorni.</span>
+                <h3>Premium</h3>
+                <span>Metti in evidenza il tuo appartamento per <b>6</b> giorni.</span>
+                <hr>
+                <form role="form" action="{{ route('apartment.sponsor.checkout', $apartment -> id) }}" method="post" class="require-validation"
                     data-cc-on-file="false"
                     data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
                     id="payment-form">
@@ -88,12 +96,11 @@
                         </div>
                             
                         </form>
-                    </div>
-                </div>        
             </div>
         </div>
     </div>
 @endsection
+
 @section('script')
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
         

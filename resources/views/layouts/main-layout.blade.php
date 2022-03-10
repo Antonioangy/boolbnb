@@ -31,7 +31,10 @@
             </ul>
         </div>
         @endif
-        @yield('content')
+        <main class="bg-ligthGrey">
+
+            @yield('content')
+        </main>
 
         @include('components.footer')
     </div>

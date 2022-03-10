@@ -1,8 +1,70 @@
 .search_container{
     width: 400px;
-
     input{
         height: 40px;
         font-size: 20px;
+    }
+}
+.quote {
+    top:50px;
+    left: 50px;
+}
+.search_apartment {
+    display: flex;
+
+    .text {
+        width: 500px;
+        margin-right: 5px;
+        padding-left: 10px;
+
+
+        &::placeholder {
+            padding: 0 5px;
+        }
+    }
+
+    .submit {
+        color: white;
+        border-radius: 10px;
+        padding: 0 5px;
+    }
+
+}
+
+.cards_apartments {
+    width: 100%;
+
+    .card_apartment {
+        height: 300px;
+        text-align: center;
+        border: 1px solid rgba(128, 128, 128, 0.308);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.5s all;
+
+        &:hover {
+            transform: scale(1.05);
+            transition: 0.5s all;
+        }
+
+        .photo_detail {
+            width: 100%;
+            height: 250px;
+            .title_sponsored {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            img {
+                width: 100%;
+                height: 180px;
+                object-fit: contain;
+            }
+        }
+        .button {
+            width: 100%;
+            height: 50px;
+        }
     }
 }

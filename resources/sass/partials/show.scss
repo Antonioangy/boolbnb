@@ -1,4 +1,10 @@
-.img_container{
-    margin: auto;
-    max-width: 900px;
+#apartment_show {
+
+    .sticky-top {
+        top: 20px;
+    }
+    
+    .fa-solid {
+        color: $red;
+    }
 }
