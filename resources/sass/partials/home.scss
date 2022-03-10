@@ -1,11 +1,36 @@
 .search_container{
     width: 400px;
-
     input{
         height: 40px;
         font-size: 20px;
     }
 }
+.quote {
+    top:50px;
+    left: 50px;
+}
+.search_apartment {
+    display: flex;
+
+    .text {
+        width: 500px;
+        margin-right: 5px;
+        padding-left: 10px;
+
+
+        &::placeholder {
+            padding: 0 5px;
+        }
+    }
+
+    .submit {
+        color: white;
+        border-radius: 10px;
+        padding: 0 5px;
+    }
+
+}
+
 .cards_apartments {
     width: 100%;
 
