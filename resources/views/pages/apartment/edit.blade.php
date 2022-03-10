@@ -15,7 +15,7 @@
         @csrf
 
         <div class="insert-container container-xl bg-darkBlue d-flex flex-column p-5 rounded text-white">
-            <h1 class="text-white">Mosidfica appartamento</h1>
+            <h1 class="text-white">Modifica appartamento</h1>
 
             <label for="title">Titolo</label>
             <input type="text" name="title" placeholder="Titolo" class="p-2 h5" value="{{$apartment -> title}}"> <br>
