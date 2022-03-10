@@ -1,4 +1,9 @@
 @extends('layouts.main-layout')
+
+@section('title')
+    Modifica appartamento
+@endsection
+
 @section('content')
     <form 
     class="my-5"
@@ -10,7 +15,7 @@
         @csrf
 
         <div class="insert-container container-xl bg-darkBlue d-flex flex-column p-5 rounded text-white">
-            <h1 class="text-white">Aggiorna appartamento</h1>
+            <h1 class="text-white">Mosidfica appartamento</h1>
 
             <label for="title">Titolo</label>
             <input type="text" name="title" placeholder="Titolo" class="p-2 h5" value="{{$apartment -> title}}"> <br>
@@ -34,7 +39,7 @@
             <input type="file" name="images" class="text-white"><br>
     
             <label for="address">Indirizzo appartamento</label>
-            <address-geocode ></address-geocode>
+            <address-geocode actual-address="{{ $apartment -> address }}"></address-geocode>
 
         </div>
 

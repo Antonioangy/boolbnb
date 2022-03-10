@@ -8,6 +8,8 @@
 export default {
     name: 'Map',
     props: {
+
+        // predo le coordinate dell'appartamento
         lng: Number,
         lat: Number,
     },
@@ -21,6 +23,8 @@ export default {
     },
 
     methods: {
+
+        // genero mappa con al centro la posizione dell'appartamento
         getMap() {
             let map = this.tt.map({
                 key: this.apiKey,
@@ -34,38 +38,37 @@ export default {
             this.addMarker(map);
         },
 
+        // aggiungo il segnalino sulla mappa
         addMarker(map) { 
-            let popupOffset = 25; 
+            // let popupOffset = 25; 
         
             var marker = new this.tt.Marker().setLngLat(this.coordinates).addTo(map); 
-            var popup = new this.tt.Popup({ offset: popupOffset }); 
-            this.reverseGeocoding(marker, popup); 
-            marker.setPopup(popup).togglePopup(); 
-        },
+            // var popup = new this.tt.Popup({ offset: popupOffset }); 
+            // this.reverseGeocoding(marker, popup); 
+            // marker.setPopup(popup).togglePopup(); 
+        }, 
 
-        reverseGeocoding(marker, popup) { 
-            this.tt.services.reverseGeocode({ 
-            key: 'iTF86GRA2V5iGjM6LMMV54lrK8v6zC1w', 
-            position: marker.getLngLat() 
-            })
-            .then( function( result ){ 
-            console.log(result.addresses[0].address.freeformAddress); 
-            popup.setHTML(result.addresses[0].address.freeformAddress); 
-            }) 
-        }
+        // indirizzo da coordinate con popup
+        // reverseGeocoding(marker, popup) { 
+        //     this.tt.services.reverseGeocode({ 
+        //     key: 'iTF86GRA2V5iGjM6LMMV54lrK8v6zC1w', 
+        //     position: marker.getLngLat() 
+        //     })
+        //     .then( function( result ){ 
+        //     popup.setHTML(result.addresses[0].address.freeformAddress); 
+        //     }) 
+        // }
     },
 
     mounted() {
-        console.log('map mounted');
         this.getMap();
-        
     }
 }
 </script>
 
 <style lang="scss" scoped>
 #map {
-  height: 50vh;
-  width: 50vw;
+  aspect-ratio: 2 / 1;
+  width: 100%;
 }
 </style>

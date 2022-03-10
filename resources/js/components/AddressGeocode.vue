@@ -11,6 +11,10 @@
 <script>
 export default {
 
+    props: {
+        actualAddress: String
+    },
+
     data() {
         return {
             addressQuery: '',
@@ -32,11 +36,6 @@ export default {
 
 
             })
-            .autocomplete({
-                key: this.apiKey,
-                language: 'it-IT'
-
-            })
             .go().then(r => console.log(r));
         },
 
@@ -54,6 +53,7 @@ export default {
     },
 
     mounted() {
+        this.addressQuery = this.actualAddress;
         console.log('component mounted');
     }
 }
