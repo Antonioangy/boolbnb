@@ -7,8 +7,7 @@
 @section('content')
 
 {{-- jumbotron --}}
-<section id="jumbotron" class="mb-5 d-flex">
-    
+<section id="jumbotron" class="container-fluid d-flex">
     <div class="search_container m-auto">
         <form action="{{ route('apartments.results') }}" method="POST">
             @csrf
@@ -18,31 +17,25 @@
     </div>
 </section>
 
-<div class="container">
-
+<div class="container cards_apartments">
     {{-- appartamenti sponsorizzati --}}
-    <section class="row">
-
+    <section class="row justify-content-center my-5">
         @foreach ($sponsoredApartments as $sponsoredApartment )
-            
-        <div class="col-12 col-md-4 card d-flex flex-column justify-content-between " style="width: 18rem;">
-            <div class="card-body">
-                @if ($sponsoredApartment->images)  
-                    <img src="{{ asset('storage/assets/'.$sponsoredApartment -> images) }}" class="card-img-top" alt="non trovo immagine">
-                @endif
-                <h5 class="card-title">
-                    {{ $sponsoredApartment -> title }}
-                </h5>
-                <p class="card-text text_clamp">
-                    {{ $sponsoredApartment -> description }}
-                </p>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
+                <div class="shadow p-3 my-3 bg-white rounded card_apartment">
+                    <div class="photo_detail">
+                        <h5 class="title_sponsored">
+                            {{ $sponsoredApartment -> title }}
+                        </h5>
+                        @if ($sponsoredApartment->images)  
+                            <img src="{{ asset('storage/assets/'.$sponsoredApartment -> images) }}" class="card-img-top" alt="apartment">
+                        @endif
+                    </div>
+                    <div class="button">
+                        <a href="{{ route('apartment.show', $sponsoredApartment ->id) }}" class="btn btn-blue">Vedi Appartamento</a>
+                    </div>
+                </div>
             </div>
-            <div class="text-center">
-                <a href="{{ route('apartment.show', $sponsoredApartment ->id) }}" class="btn btn-blue">
-                    Vedi Appartamento
-                </a>
-            </div>
-        </div>
         @endforeach
     </section>
 </div>
