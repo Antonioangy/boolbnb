@@ -1919,6 +1919,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    actualAddress: String
+  },
   data: function data() {
     return {
       addressQuery: '',
@@ -1935,9 +1938,6 @@ __webpack_require__.r(__webpack_exports__);
       this.tt.services.fuzzySearch({
         key: this.apiKey,
         query: this.addressQuery
-      }).autocomplete({
-        key: this.apiKey,
-        language: 'it-IT'
       }).go().then(function (r) {
         return console.log(r);
       });
@@ -1957,6 +1957,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    this.addressQuery = this.actualAddress;
     console.log('component mounted');
   }
 });
@@ -1980,6 +1981,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Map',
   props: {
+    // predo le coordinate dell'appartamento
     lng: Number,
     lat: Number
   },
@@ -1992,6 +1994,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    // genero mappa con al centro la posizione dell'appartamento
     getMap: function getMap() {
       var map = this.tt.map({
         key: this.apiKey,
@@ -2004,27 +2007,25 @@ __webpack_require__.r(__webpack_exports__);
       map.addControl(new this.tt.NavigationControl());
       this.addMarker(map);
     },
+    // aggiungo il segnalino sulla mappa
     addMarker: function addMarker(map) {
-      var popupOffset = 25;
-      var marker = new this.tt.Marker().setLngLat(this.coordinates).addTo(map);
-      var popup = new this.tt.Popup({
-        offset: popupOffset
-      });
-      this.reverseGeocoding(marker, popup);
-      marker.setPopup(popup).togglePopup();
-    },
-    reverseGeocoding: function reverseGeocoding(marker, popup) {
-      this.tt.services.reverseGeocode({
-        key: 'iTF86GRA2V5iGjM6LMMV54lrK8v6zC1w',
-        position: marker.getLngLat()
-      }).then(function (result) {
-        console.log(result.addresses[0].address.freeformAddress);
-        popup.setHTML(result.addresses[0].address.freeformAddress);
-      });
-    }
+      // let popupOffset = 25; 
+      var marker = new this.tt.Marker().setLngLat(this.coordinates).addTo(map); // var popup = new this.tt.Popup({ offset: popupOffset }); 
+      // this.reverseGeocoding(marker, popup); 
+      // marker.setPopup(popup).togglePopup(); 
+    } // indirizzo da coordinate con popup
+    // reverseGeocoding(marker, popup) { 
+    //     this.tt.services.reverseGeocode({ 
+    //     key: 'iTF86GRA2V5iGjM6LMMV54lrK8v6zC1w', 
+    //     position: marker.getLngLat() 
+    //     })
+    //     .then( function( result ){ 
+    //     popup.setHTML(result.addresses[0].address.freeformAddress); 
+    //     }) 
+    // }
+
   },
   mounted: function mounted() {
-    console.log('map mounted');
     this.getMap();
   }
 });
@@ -6812,7 +6813,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#map[data-v-c45ba096] {\n  height: 50vh;\n  width: 50vw;\n}", ""]);
+exports.push([module.i, "#map[data-v-c45ba096] {\n  aspect-ratio: 2/1;\n  width: 100%;\n}", ""]);
 
 // exports
 
