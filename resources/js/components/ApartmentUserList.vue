@@ -1,38 +1,58 @@
 <template>
-    <div class="container">
+    <div class="container my-5">
         <!-- lista appartamenti dell'utente loggato -->
         <div>
             <ul>
-                <li class="list-unstyled d-flex align-items-center justify-content-between row" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
-                    <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
-                        <div class="d-flex justify-content-between">
-                            <h3 class="m-3">
-                                <a v-if="!apartment.sponsor" class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
-                                    <i class="fa-solid fa-star invisible"></i>
-                                    <i class="fas fa-home"></i>
-                                    {{ apartment.title }}
-                                </a>
-                                <a v-else class="text-decoration-none" :href="`/apartment/show/${apartment.id}`">
-                                    <i class="fa-solid fa-star text-orange"></i>
-                                    <i class="fas fa-home"></i>
-                                    {{ apartment.title }} 
-                                </a>
+                <li class="userApartment list-unstyled my-2 d-flex align-items-center justify-content-between row" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
+                    <div class="apartmentInfos col-xl-8 col-lg-6 col-md-6 col-sm-12">
+                        <a v-if="!apartment.sponsor" class="text-decoration-none d-flex align-items-center" :href="`/apartment/show/${apartment.id}`">
+                            <i class="fa-solid fa-star invisible"></i>
+
+                            <div v-if="apartment.images" class="userApartmentImg">
+                                <img class="rounded" :src="`/storage/assets/${apartment.images}`" alt="">
+                            </div>
+                            <div v-else class="userApartmentImg d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-house-chimney h1"></i>
+                            </div>
+
+                            <h3 class="userApartmentTitle pl-5 text-darkBlue">
+                                {{ apartment.title }}
                             </h3>
-                        </div>
+                            
+                            <div>{{ $views }} views</div>
+                        </a>
+                        <a v-else class="text-decoration-none d-flex align-items-center" :href="`/apartment/show/${apartment.id}`">
+
+                            <i class="fa-solid fa-star text-orange"></i>
+
+                            <div v-if="apartment.images" class="userApartmentImg">
+                                <img class="border border-orange rounded" :src="`/storage/assets/${apartment.images}`" alt="">
+                            </div>
+                            <div v-else class="userApartmentImg d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-house-chimney h4"></i>
+                            </div>
+
+                            <h3 class="userApartmentTitle pl-5 text-orange">
+                                {{ apartment.title }}
+                            </h3>
+
+                            <div>{{ views }} views</div>
+                        </a>
                     </div>
-                    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
-                        <div>
-                            <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-blue mt-md-2 mt-sm-2">Modifica</a> 
+                    
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="text-center apartmentButtons py-2">
+                            <a :href="`/apartment/edit/${apartment.id}`" class="btn btn-blue">Modifica</a>
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-red mt-md-2 mt-sm-2" data-toggle="modal" data-target="#confirmDelete" @click="saveId(apartment.id)">
+                            <button type="button" class="btn btn-red" data-toggle="modal" data-target="#confirmDelete" @click="saveId(apartment.id)">
                                 Cancella
                             </button>
                             
-                            <a v-if="!apartment.sponsor" :href="`/apartment/sponsor/${apartment.id}`" class="btn btn-darkBlue mt-md-2 mt-sm-2">Sponsorizza</a>
-                            <a v-else :href="`/apartment/sponsor/${apartment.id}`" class="btn btn-darkBlue mt-md-2 mt-sm-2">Estendi sponsor</a>
+                            <a v-if="!apartment.sponsor" :href="`/apartment/sponsor/${apartment.id}`" class="btn btn-darkBlue">Sponsorizza</a>
+                            <a v-else :href="`/apartment/sponsor/${apartment.id}`" class="btn btn-darkBlue">Estendi sponsor</a>
                         </div>
-
+                        
 
                         <!-- Modal -->
                         <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
@@ -51,8 +71,11 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
+                    
                 </li>
+                
             </ul>
         </div>
     </div>
@@ -61,7 +84,9 @@
 <script>
 export default {
     name: 'ApartmentUserList',
-    
+    props: {
+        views: String,
+    },
     data() {
         return {
             apartmentsList: [],

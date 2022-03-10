@@ -21280,6 +21280,60 @@ header .btn_register {
   font-size: 20px;
 }
 
+#dashboard .userApartment .apartmentInfos {
+  transition: all 0.5s;
+}
+
+#dashboard .userApartment .apartmentButtons {
+  transition: all 0.5s;
+}
+
+#dashboard .userApartment:hover .apartmentInfos {
+  padding-left: 50px;
+  transition: all 0.5s;
+}
+
+#dashboard .userApartment:hover .apartmentButtons {
+  border: solid 3px;
+  border-width: 3px;
+  -o-border-image: linear-gradient(to left, #4F5D75, rgba(0, 0, 0, 0)) 2 2 2 0;
+     border-image: linear-gradient(to left, #4F5D75, rgba(0, 0, 0, 0)) 2 2 2 0;
+  transition: all 0.5s;
+}
+
+#dashboard .messaggiRicevuti {
+  height: 200px;
+  overflow-y: auto;
+}
+
+#dashboard .userApartmentImg {
+  width: 100px;
+  height: 100px;
+}
+
+#dashboard .userApartmentImg img {
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#dashboard .userApartmentTitle {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 1px #BFC0C0;
+}
+
+@media all and (max-width: 767px) {
+  #dashboard .userApartment:hover .apartmentButtons {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+  }
+}
+
 th,
 td {
   border: 1px solid black;
