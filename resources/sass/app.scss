@@ -1,5 +1,6 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+/* @import url('https://fonts.googleapis.com/css?family=Roboto'); */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka');
 
 // Variables
 @import 'variables';
@@ -27,6 +28,13 @@
 
 //home
 @import 'partials/home.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
 
 
 th, td {

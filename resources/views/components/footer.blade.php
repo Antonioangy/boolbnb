@@ -1,6 +1,6 @@
 <footer class="border-secondary bg-darkBlue">
     <div class="container text-white">
-        <div class="row pt-4">
+        <div class="row">
             <div class="col-md-12 col-lg-12">
                 <div class="row m-4">
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-md-0 mb-3 ">
