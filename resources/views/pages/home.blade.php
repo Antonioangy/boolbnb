@@ -50,8 +50,8 @@
         <h1 class="my-3 text-orange"><b>Scopri BoolBnb</b> </h1>
         <span class="mb-3">Ti diamo il benvenuto nel sito viaggi di Boolbnb. <br>Ovunque tu vada, Boolbnb ha l'alloggio per te. </span>
         <h3 >Cosa rende speciale Boolbnb</h3>
-        <div class="row">
-            <div class="col-xl-4 shadow p-3 my-3 bg-white rounded">
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 shadow p-3 my-3 bg-white rounded">
                 <i class="fa-solid fa-earth-europe display-4 text-orange my-5"></i><br>
                 <h5>Una community di viaggi globale</h5>
                 <p><b>Boolbnb è disponibile in oltre 191 Paesi, dove i nostri Standard
@@ -59,12 +59,12 @@
                     l'appartenenza di tutti.</b>
                 </p>
             </div>
-            <div class="col-xl-4 shadow p-3 my-3 bg-white rounded">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 shadow p-3 my-3 bg-white rounded">
                 <i class="fa-solid fa-heart display-4 text-orange my-5"></i><br>
                 <h5>Host premurosi</h5>
                 <p><b>Che si tratti di alloggi o di hotel, qualunque sia la tua destinazione gli host fanno di tutto per metterti a tuo agio.</b> </p>
             </div>
-            <div class="col-xl-4 shadow p-3 my-3 bg-white rounded">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 shadow p-3 my-3 bg-white rounded">
                 <i class="fa-solid fa-info display-4 text-orange my-5"></i><br>
                 <h5>Siamo qui per te, giorno e notte </h5>
                 <p><b>Il nostro servizio di assistenza internazionale, attivo 24 ore su 24, è disponibile in 11 lingue ed è pronto ad aiutarti ovunque ti trovi.</b> </p>
