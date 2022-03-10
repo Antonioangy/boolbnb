@@ -1,4 +1,4 @@
-<header>
+<header class="container">
     <div>
         {{-- navbar header --}}
         <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between flex-nowrap">
