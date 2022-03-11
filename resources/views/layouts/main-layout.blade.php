@@ -20,7 +20,7 @@
 </head>
 <body>
 
-    <div id="app" class="d-flex flex-column">
+    <div id="app">
         @include('components.header')
         @if ($errors->any())
         <div class="alert alert-danger">
