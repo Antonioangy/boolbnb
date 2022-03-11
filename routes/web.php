@@ -52,5 +52,6 @@ Route::middleware('auth')
 
     // lista appartamenti dell'utenete loggato
     Route::get('/user/apartments/list', 'ApiController@getApartmentUserList') -> name('user.apartments.list');
+    Route::get('/user/apartments/views', 'ApiController@getApartmentViews') -> name('user.apartments.views');
 }); 
 

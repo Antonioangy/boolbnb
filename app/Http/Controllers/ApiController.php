@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Apartment;
 use App\Service;
+use App\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -86,5 +87,18 @@ class ApiController extends Controller
         $services = Service::all();
 
         return json_encode($services);
+    }
+
+    public function getApartmentViews() {
+        $userApartments = Apartment::where('user_id', Auth::user()->id)->get();
+
+        $views = [];
+        foreach ($userApartments as $apartment) {
+
+            $apartmentViews = View::where('apartment_id', $apartment -> id) -> count();
+            array_push($views, $apartmentViews);
+        };
+
+        return json_encode($views);
     }
 }
