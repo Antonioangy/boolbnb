@@ -1,7 +1,7 @@
 <template>
     <div class="container my-5">
         <!-- lista appartamenti dell'utente loggato -->
-        <div>
+        <div class="shadow p-3 my-3 bg-white rounded">
             <ul>
                 <li class="userApartment list-unstyled my-2 d-flex align-items-center justify-content-between row" v-for="apartment, i in apartmentsList" :key="`apartment-${i}`">
                     <div class="apartmentInfos col-xl-8 col-lg-6 col-md-6 col-sm-12">
