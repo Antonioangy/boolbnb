@@ -15,12 +15,16 @@
             <h5 class="text-center">
                 <b>I tuoi appartamenti</b>
             </h5>
-            <apartment-user-list :views="{{ $views }}"></apartment-user-list>
+            <apartment-user-list></apartment-user-list>
 
             {{-- Bottone creazione nuovo appartamento --}}
             <div class="text-center my-5">
                 <a class="btn btn-darkBlue" href="{{ route('apartment.create') }}">Crea un nuovo appartamento <i class="fa-solid fa-circle-plus ml-2"></i></a>
             </div>
+
+
+            <apartment-chart></apartment-chart>
+
 
             {{-- messaggi ricevuti da utenti  --}}
             @if (count($obj))

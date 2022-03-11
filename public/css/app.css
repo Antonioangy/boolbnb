@@ -21546,8 +21546,8 @@ header .btn_register {
 }
 
 #dashboard .userApartment:hover .apartmentButtons {
-  border: solid 3px;
-  border-width: 3px;
+  border: solid 1px;
+  border-width: 1px;
   -o-border-image: linear-gradient(to left, #4F5D75, rgba(0, 0, 0, 0)) 2 2 2 0;
      border-image: linear-gradient(to left, #4F5D75, rgba(0, 0, 0, 0)) 2 2 2 0;
   transition: all 0.5s;

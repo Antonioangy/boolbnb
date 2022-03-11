@@ -20,6 +20,7 @@ class UserController extends Controller
         
 
         $obj = [];
+        $totalViews = [];
 
         foreach ($apartments as $apartment) {
             if ($apartment -> user_id == $user -> id) {
@@ -30,16 +31,13 @@ class UserController extends Controller
                         
                         array_push($obj, (object)[
                             'message' => $message,
-                            'apartment' => $apartment
+                            'apartment' => $apartment,
                         ]);
                     }
                 }
             }
-            $views = View::where('apartment_id', $apartment -> id ) -> count();
         }
 
-        
-
-        return view('pages.dashboard', compact('obj', 'views'));
+        return view('pages.dashboard', compact('obj'));
     }
 }

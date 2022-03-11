@@ -19,7 +19,6 @@
                                 {{ apartment.title }}
                             </h3>
                             
-                            <div>{{ $views }} views</div>
                         </a>
                         <a v-else class="text-decoration-none d-flex align-items-center" :href="`/apartment/show/${apartment.id}`">
 
@@ -36,7 +35,6 @@
                                 {{ apartment.title }}
                             </h3>
 
-                            <div>{{ views }} views</div>
                         </a>
                     </div>
                     

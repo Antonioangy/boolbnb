@@ -27,6 +27,8 @@
         "@fortawesome/fontawesome-free": "^6.0.0",
         "@tomtom-international/web-sdk-maps": "^6.18.0",
         "@tomtom-international/web-sdk-plugin-searchbox": "^3.1.12",
-        "@tomtom-international/web-sdk-services": "^6.18.0"
+        "@tomtom-international/web-sdk-services": "^6.18.0",
+        "chart.js": "^3.7.1",
+        "font-awesome": "^4.7.0"
     }
 }
