@@ -1,42 +1,42 @@
 <header class="container">
-    <div>
-        {{-- navbar header --}}
-        <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between flex-nowrap">
-            {{-- logo --}}
-            <a class="logo_container" href="{{ route('home') }}">
-                <img class="w-100" src="{{asset('storage/images/boolbnb-logo.png')}}" alt="bnb logo">
-            </a>
 
-            <div class="text-center">
-                {{-- nav hamburger menu  --}}
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                {{-- lista link nav --}}
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav align-items-center">
-                        <li class="nav-item active m-2">
-                            <a class="btn btn-blue text-white" href="{{ route('home') }}">Home</a>
-                        </li>
-                        @auth
-                        <li class="nav-item align-self-center">
-                            {{-- pulsante pannello utente modal --}}
-                            <button type="button" class="icon_container align-content-center justify-content-center text-darkBlue border border-darkBlue rounded-circle" data-toggle="modal" data-target="#userTab">
-                                <i class="fa-solid fa-user "></i>
-                            </button>
-                        </li>
-                        @else
-                        <li class="nav-item ">
-                            {{-- pulsante accesso modal --}}
-                            <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#access">Accedi</button>
-                        </li>
-                        @endauth
-                    </ul>
+    {{-- navbar header --}}
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-between px-0">
+        {{-- logo --}}
+        <a class="logo_container" href="{{ route('home') }}">
+            <img class="w-100" src="{{asset('storage/images/boolbnb-logo.png')}}" alt="bnb logo">
+        </a>
 
-                </div>
-            </div>
-        </nav>
-    </div>
+        {{-- nav hamburger menu  --}}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        {{-- lista link nav --}}
+        <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item active m-2">
+                    <a class="btn btn-blue text-white" href="{{ route('home') }}">Home</a>
+                </li>
+                @auth
+                <li class="nav-item align-self-center">
+
+                    {{-- pulsante pannello utente modal --}}
+                    <button type="button" class="icon_container align-content-center justify-content-center text-darkBlue border border-darkBlue rounded-circle" data-toggle="modal" data-target="#userTab">
+                        <i class="fa-solid fa-user "></i>
+                    </button>
+                </li>
+                @else
+                <li class="nav-item ">
+
+                    {{-- pulsante accesso modal --}}
+                    <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#access">Accedi</button>
+                </li>
+                @endauth
+            </ul>
+        </div>
+    </nav>
+
     {{-- modal bootstrap per accesso --}}
     <div class="modal fade" id="access" tabindex="-1" role="dialog" aria-labelledby="access" aria-hidden="true">
         <div class="modal-dialog" role="document">
