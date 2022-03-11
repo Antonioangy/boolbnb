@@ -6,10 +6,7 @@ Ricerca appartamenti
 
 @section('content')
 
-<div class="container-fluid">
-
-    {{-- componete vue per ricerca appartamenti --}}
-    <apartments-search first-query="{{ $addressQuery }}"></apartments-search>
-</div>
+{{-- componente vue per ricerca appartamenti --}}
+<apartments-search first-query="{{ $addressQuery }}"></apartments-search>
     
 @endsection
