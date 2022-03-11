@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <main class="container-xl my-5">
+    <main id="dashboard" class="container-xl my-5">
     
         @auth
         
@@ -15,11 +15,11 @@
             <h5 class="text-center">
                 <b>I tuoi appartamenti</b>
             </h5>
-            <apartment-user-list></apartment-user-list>
+            <apartment-user-list :views="{{ $views }}"></apartment-user-list>
 
             {{-- Bottone creazione nuovo appartamento --}}
-            <div class="text-center mt-4">
-                <a class="btn btn-darkBlue" href="{{ route('apartment.create') }}">CREA UN NUOVO APPARTAMENTO</a>
+            <div class="text-center my-5">
+                <a class="btn btn-darkBlue" href="{{ route('apartment.create') }}">Crea un nuovo appartamento <i class="fa-solid fa-circle-plus ml-2"></i></a>
             </div>
 
             {{-- messaggi ricevuti da utenti  --}}
@@ -27,7 +27,7 @@
                 <h5 class="mt-4 text-center"><b>Messaggi ricevuti</b></h5>
             @endif
             
-            <div>
+            <div class="messaggiRicevuti">
                 @foreach ($obj as $item)
                     <div class="text-center">
                         <div class="alloggio">

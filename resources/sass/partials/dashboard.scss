@@ -1,0 +1,58 @@
+#dashboard {
+    .userApartment {
+
+        .apartmentInfos {
+            transition: all 0.5s;
+        }
+        .apartmentButtons {
+            transition: all 0.5s;
+        }
+        
+        &:hover .apartmentInfos{
+            padding-left: 50px;
+            transition: all 0.5s;
+        }
+        &:hover .apartmentButtons {
+            border: solid 3px;
+            border-width: 3px;
+            border-image: 
+            linear-gradient(
+            to left, 
+            $blue, 
+            rgba(0, 0, 0, 0)
+            ) 2 2 2 0;
+            transition: all 0.5s;
+        }
+    }
+    .messaggiRicevuti {
+        height: 200px;
+        overflow-y: auto;
+    }
+    .userApartmentImg {
+        width: 100px;
+        height: 100px;
+        img {
+            padding: 5px;
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+    }
+
+    .userApartmentTitle {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-shadow: 1px 1px 1px $grey;
+    }
+
+    @media all and (max-width: 767px) {
+        .userApartment {
+            &:hover .apartmentButtons{
+                border-top: none;
+                border-right: none;
+                border-left: none;
+            }
+        }
+      }
+}

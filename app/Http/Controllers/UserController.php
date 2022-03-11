@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Message;
 use App\Apartment;
+use App\View;
 
 class UserController extends Controller
 {
@@ -34,7 +35,11 @@ class UserController extends Controller
                     }
                 }
             }
+            $views = View::where('apartment_id', $apartment -> id ) -> count();
         }
-        return view('pages.dashboard', compact('obj'));
+
+        
+
+        return view('pages.dashboard', compact('obj', 'views'));
     }
 }

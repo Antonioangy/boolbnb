@@ -2101,8 +2101,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentUserList',
+  props: {
+    views: String
+  },
   data: function data() {
     return {
       apartmentsList: [],
@@ -38878,7 +38904,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container my-5" }, [
     _c("div", [
       _c(
         "ul",
@@ -38888,121 +38914,188 @@ var render = function () {
             {
               key: "apartment-" + i,
               staticClass:
-                "list-unstyled d-flex align-items-center justify-content-between row",
+                "userApartment list-unstyled my-2 d-flex align-items-center justify-content-between row",
             },
             [
               _c(
                 "div",
-                { staticClass: "col-xl-8 col-lg-12 col-md-12 col-sm-12" },
+                {
+                  staticClass:
+                    "apartmentInfos col-xl-8 col-lg-6 col-md-6 col-sm-12",
+                },
                 [
-                  _c("div", { staticClass: "d-flex justify-content-between" }, [
-                    _c("h3", { staticClass: "m-3" }, [
-                      !apartment.sponsor
-                        ? _c(
-                            "a",
-                            {
-                              staticClass: "text-decoration-none",
-                              attrs: {
-                                href: "/apartment/show/" + apartment.id,
-                              },
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa-solid fa-star invisible",
-                              }),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "fas fa-home" }),
-                              _vm._v(
-                                "\n                                " +
-                                  _vm._s(apartment.title) +
-                                  "\n                            "
+                  !apartment.sponsor
+                    ? _c(
+                        "a",
+                        {
+                          staticClass:
+                            "text-decoration-none d-flex align-items-center",
+                          attrs: { href: "/apartment/show/" + apartment.id },
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa-solid fa-star invisible",
+                          }),
+                          _vm._v(" "),
+                          apartment.images
+                            ? _c("div", { staticClass: "userApartmentImg" }, [
+                                _c("img", {
+                                  staticClass: "rounded",
+                                  attrs: {
+                                    src: "/storage/assets/" + apartment.images,
+                                    alt: "",
+                                  },
+                                }),
+                              ])
+                            : _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "userApartmentImg d-flex align-items-center justify-content-center",
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa-solid fa-house-chimney h1",
+                                  }),
+                                ]
                               ),
-                            ]
-                          )
-                        : _c(
-                            "a",
+                          _vm._v(" "),
+                          _c(
+                            "h3",
                             {
-                              staticClass: "text-decoration-none",
-                              attrs: {
-                                href: "/apartment/show/" + apartment.id,
-                              },
+                              staticClass:
+                                "userApartmentTitle pl-5 text-darkBlue",
                             },
                             [
-                              _c("i", {
-                                staticClass: "fa-solid fa-star text-orange",
-                              }),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "fas fa-home" }),
                               _vm._v(
-                                "\n                                " +
+                                "\n                            " +
                                   _vm._s(apartment.title) +
-                                  " \n                            "
+                                  "\n                        "
                               ),
                             ]
                           ),
-                    ]),
-                  ]),
+                          _vm._v(" "),
+                          _c("div", [_vm._v(_vm._s(_vm.$views) + " views")]),
+                        ]
+                      )
+                    : _c(
+                        "a",
+                        {
+                          staticClass:
+                            "text-decoration-none d-flex align-items-center",
+                          attrs: { href: "/apartment/show/" + apartment.id },
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa-solid fa-star text-orange",
+                          }),
+                          _vm._v(" "),
+                          apartment.images
+                            ? _c("div", { staticClass: "userApartmentImg" }, [
+                                _c("img", {
+                                  staticClass: "border border-orange rounded",
+                                  attrs: {
+                                    src: "/storage/assets/" + apartment.images,
+                                    alt: "",
+                                  },
+                                }),
+                              ])
+                            : _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "userApartmentImg d-flex align-items-center justify-content-center",
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa-solid fa-house-chimney h4",
+                                  }),
+                                ]
+                              ),
+                          _vm._v(" "),
+                          _c(
+                            "h3",
+                            {
+                              staticClass:
+                                "userApartmentTitle pl-5 text-orange",
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(apartment.title) +
+                                  "\n                        "
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", [_vm._v(_vm._s(_vm.views) + " views")]),
+                        ]
+                      ),
                 ]
               ),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "col-xl-4 col-lg-12 col-md-12 col-sm-12" },
+                { staticClass: "col-xl-4 col-lg-6 col-md-6 col-sm-12" },
                 [
-                  _c("div", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-blue mt-md-2 mt-sm-2",
-                        attrs: { href: "/apartment/edit/" + apartment.id },
-                      },
-                      [_vm._v("Modifica")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-red mt-md-2 mt-sm-2",
-                        attrs: {
-                          type: "button",
-                          "data-toggle": "modal",
-                          "data-target": "#confirmDelete",
+                  _c(
+                    "div",
+                    { staticClass: "text-center apartmentButtons py-2" },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-blue",
+                          attrs: { href: "/apartment/edit/" + apartment.id },
                         },
-                        on: {
-                          click: function ($event) {
-                            return _vm.saveId(apartment.id)
+                        [_vm._v("Modifica")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-red",
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "modal",
+                            "data-target": "#confirmDelete",
                           },
-                        },
-                      },
-                      [
-                        _vm._v(
-                          "\n                            Cancella\n                        "
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    !apartment.sponsor
-                      ? _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-darkBlue mt-md-2 mt-sm-2",
-                            attrs: {
-                              href: "/apartment/sponsor/" + apartment.id,
+                          on: {
+                            click: function ($event) {
+                              return _vm.saveId(apartment.id)
                             },
                           },
-                          [_vm._v("Sponsorizza")]
-                        )
-                      : _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-darkBlue mt-md-2 mt-sm-2",
-                            attrs: {
-                              href: "/apartment/sponsor/" + apartment.id,
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Cancella\n                        "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      !apartment.sponsor
+                        ? _c(
+                            "a",
+                            {
+                              staticClass: "btn btn-darkBlue",
+                              attrs: {
+                                href: "/apartment/sponsor/" + apartment.id,
+                              },
                             },
-                          },
-                          [_vm._v("Estendi sponsor")]
-                        ),
-                  ]),
+                            [_vm._v("Sponsorizza")]
+                          )
+                        : _c(
+                            "a",
+                            {
+                              staticClass: "btn btn-darkBlue",
+                              attrs: {
+                                href: "/apartment/sponsor/" + apartment.id,
+                              },
+                            },
+                            [_vm._v("Estendi sponsor")]
+                          ),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -52116,8 +52209,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Antonino\Desktop\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Antonino\Desktop\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean Esercizi\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean Esercizi\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
