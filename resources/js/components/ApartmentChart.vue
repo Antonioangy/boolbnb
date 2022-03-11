@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <canvas id="myChart" width="400" height="400"></canvas>
+    <div class="shadow p-3 my-3 bg-white rounded">
+        <canvas id="myChart" width="400" height="200"></canvas>
     </div>
 </template>
 
