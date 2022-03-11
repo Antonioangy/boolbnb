@@ -74,7 +74,39 @@
                     <ul class="row">
                         @foreach ($apartment -> services as $apartmentService)       
                             <li class="d-flex align-items-center col-12 col-md-6 col-lg-4 mt-2">  
-                                <i class="fa-solid fa-bell-concierge mr-3"></i>{{ $apartmentService -> name}}
+
+                                @if ($apartmentService -> name == 'WiFi')
+                                    <i class="fa-solid fa-wifi mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Sauna')
+                                    <i class="fa-solid fa-temperature-full mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Aria Condizionata')
+                                    <i class="fa-solid fa-fan mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Caffè')
+                                    <i class="fa-solid fa-mug-saucer mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'TV')
+                                    <i class="fa-solid fa-tv mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Posto Auto')
+                                    <i class="fa-solid fa-car mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Piscina')
+                                    <i class="fa-solid fa-person-swimming mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Vista Mare')
+                                    <i class="fa-solid fa-water mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Portineria')
+                                    <i class="fa-solid fa-bell-concierge mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Doccia')
+                                    <i class="fa-solid fa-shower mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'È permesso fumare')
+                                    <i class="fa-solid fa-smoking mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Piatti e posate')
+                                    <i class="fa-solid fa-utensils mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Vasca da bagno')
+                                    <i class="fa-solid fa-bath mr-3"></i> {{ $apartmentService -> name}}
+                                
+                                @else
+                                    <i class="fa-solid fa-wifi mr-3"></i> {{ $apartmentService -> name}}
+                                @endif
+                                   
+                               
                             </li>
                         @endforeach <br>
                     </ul>
