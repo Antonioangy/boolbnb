@@ -5,11 +5,18 @@
 @endsection
 
 @section('content')
-    <main id="dashboard" class="container-xl my-5">
+    <main id="dashboard" class="container-xl py-5">
     
         @auth
-        
-            <h3 class="text-center">Ciao {{ Auth::user() -> name }}!</h3>
+
+            <div class="d-flex justify-content-between my-2">
+                <h3>Ciao <span class="text-orange">{{ Auth::user() -> name }}</span>!</h3>
+
+                {{-- Bottone creazione nuovo appartamento --}}
+                <div>
+                    <a class="btn btn-orange" href="{{ route('apartment.create') }}">Crea un nuovo appartamento <i class="fa-solid fa-circle-plus ml-2"></i></a>
+                </div>
+            </div>
 
             {{-- appartamenti dell'host --}}
             <h5 class="text-center">
@@ -17,18 +24,16 @@
             </h5>
             <apartment-user-list></apartment-user-list>
 
-            {{-- Bottone creazione nuovo appartamento --}}
-            <div class="text-center my-5">
-                <a class="btn btn-darkBlue" href="{{ route('apartment.create') }}">Crea un nuovo appartamento <i class="fa-solid fa-circle-plus ml-2"></i></a>
-            </div>
-
+            <h5 class="text-center my-5">
+                <b>Statistiche appartamenti</b>
+            </h5>
 
             <apartment-chart></apartment-chart>
 
 
             {{-- messaggi ricevuti da utenti  --}}
             @if (count($obj))
-                <h5 class="mt-4 text-center"><b>Messaggi ricevuti</b></h5>
+                <h5 class="my-5 text-center"><b>Messaggi ricevuti</b></h5>
             @endif
             
             <div class="messaggiRicevuti">
