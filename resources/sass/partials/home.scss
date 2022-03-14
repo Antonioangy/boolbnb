@@ -1,35 +1,28 @@
-.search_container{
-    width: 400px;
-    input{
-        height: 40px;
-        font-size: 20px;
-    }
-}
 .quote {
-    top:50px;
-    left: 50px;
+    top: 48px;
+    left: 48px;
 }
-.search_apartment {
-    display: flex;
 
-    .text {
-        width: 500px;
-        margin-right: 5px;
-        padding-left: 10px;
+.text {
+    min-width: 200px;
+    width: 30%;
+    margin-right: 5px;
+    padding-left: 10px;
+    height: 40px;
+    font-size: 20px;
 
 
-        &::placeholder {
-            padding: 0 5px;
-        }
-    }
-
-    .submit {
-        color: white;
-        border-radius: 10px;
+    &::placeholder {
         padding: 0 5px;
     }
-
 }
+
+.submit {
+    color: white;
+    border-radius: 10px;
+    padding: 0 5px;
+}
+
 
 .cards_apartments {
     width: 100%;
@@ -50,6 +43,11 @@
 
         .subtitle {
             font-size: 13px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            display: inline-block;
         }
 
         .photo_detail {

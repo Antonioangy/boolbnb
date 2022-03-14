@@ -7,18 +7,18 @@
 @section('content')
 
 {{-- jumbotron --}}
-<section id="jumbotron" class="container-fluid d-flex position-relative">
-    <blockquote class="blockquote quote text-right position-absolute">
-        <p class="mb-0 text-left h1">Viaggiare rende modesti.<br>Ci mostra quanto &egrave; piccolo il posto che occupiamo.</p>
+<section id="jumbotron" class="container-fluid d-flex align-items-center justify-content-center position-relative">
+    <blockquote class="blockquote quote text-right position-absolute mr-5">
+        <p class="mb-0 text-left h2">Viaggiare rende modesti.<br>Ci mostra quanto &egrave; piccolo il posto che occupiamo.</p>
         <footer class="blockquote-footer">Gustave Flaubert <cite title="Source Title">frasimania.it</cite></footer>
     </blockquote>
-    <div class="search_container m-auto">
-        <form class="search_apartment" action="{{ route('apartments.results') }}" method="POST">
+    {{-- <div class="search_container "> --}}
+        <form class="search_apartment d-flex justify-content-center flex-grow-1" action="{{ route('apartments.results') }}" method="POST">
             @csrf
             <input class="text rounded-pill border-0" type="text" name="addressQuery" placeholder="Dove vuoi andare?">
             <button class="submit btn  rounded-circle bg-orange " type="submit"><i class="fa-solid fa-magnifying-glass px-2"></i></button>
         </form>
-    </div>
+    {{-- </div> --}}
 </section>
 
 <div class="container cards_apartments">
