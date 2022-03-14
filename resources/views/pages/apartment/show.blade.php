@@ -74,7 +74,6 @@
                     <ul class="row">
                         @foreach ($apartment -> services as $apartmentService)       
                             <li class="d-flex align-items-center col-12 col-md-6 col-lg-4 mt-2">  
-
                                 @if ($apartmentService -> name == 'WiFi')
                                     <i class="fa-solid fa-wifi mr-3"></i> {{ $apartmentService -> name}}
                                 @elseif($apartmentService -> name == 'Sauna')
@@ -93,20 +92,31 @@
                                     <i class="fa-solid fa-water mr-3"></i> {{ $apartmentService -> name}}
                                 @elseif($apartmentService -> name == 'Portineria')
                                     <i class="fa-solid fa-bell-concierge mr-3"></i> {{ $apartmentService -> name}}
-                                @elseif($apartmentService -> name == 'Doccia')
+                                @elseif($apartmentService -> name == 'Doccia'
+                                        || $apartmentService -> name == 'Shampoo')
                                     <i class="fa-solid fa-shower mr-3"></i> {{ $apartmentService -> name}}
                                 @elseif($apartmentService -> name == 'È permesso fumare')
                                     <i class="fa-solid fa-smoking mr-3"></i> {{ $apartmentService -> name}}
-                                @elseif($apartmentService -> name == 'Piatti e posate')
+                                @elseif($apartmentService -> name == 'Piatti e posate' 
+                                        || $apartmentService -> name == 'Cucina' 
+                                        || $apartmentService -> name == 'Bollitore'
+                                        || $apartmentService -> name == 'Forno'
+                                        || $apartmentService -> name == 'Fornelli' 
+                                        || $apartmentService -> name == 'Lavastoviglie' )
                                     <i class="fa-solid fa-utensils mr-3"></i> {{ $apartmentService -> name}}
                                 @elseif($apartmentService -> name == 'Vasca da bagno')
                                     <i class="fa-solid fa-bath mr-3"></i> {{ $apartmentService -> name}}
-                                
+                                @elseif($apartmentService -> name == 'Culla')
+                                <i class="fa-solid fa-baby mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Lavatrice')
+                                <i class="fa-solid fa-socks mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Asciugacapelli')
+                                <i class="fa-solid fa-wind mr-3"></i> {{ $apartmentService -> name}}
+                                @elseif($apartmentService -> name == 'Ferro da stiro')
+                                <i class="fa-solid fa-shirt mr-3"></i> {{ $apartmentService -> name}}
                                 @else
                                     <i class="fa-solid fa-wifi mr-3"></i> {{ $apartmentService -> name}}
                                 @endif
-                                   
-                               
                             </li>
                         @endforeach <br>
                     </ul>
