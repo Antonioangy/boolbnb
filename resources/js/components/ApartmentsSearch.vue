@@ -1,19 +1,23 @@
 <template>
-    <div class="row">
-        <div class="col-6">
+    <section class="row m-0 py-4">
+        <div class="col-12 col-md-6">
             <div class="d-flex flex-column">
 
                 <!-- ricerca indirizzo -->
                 <input type="text" placeholder="Dove vuoi andare?" v-model="addresToSearch" class="w-100 mb-3 rounded-pill px-2 px-2" @keyup.enter="geocoding">
-                <div class="d-flex align-items-center justify-content-between py-1">
+                <div class="d-flex align-items-center justify-content-around py-1">
 
                     <!-- filtro numero minimo stanze -->
-                    <label for="rooms">N. stanze</label>
-                    <input type="number" class="rounded-pill px-2" min="1" max="8" v-model="nRooms" @keyup="getApartmentList" @click="getApartmentList">
+                    <span class="d-flex align-items-center">
+                        <label for="rooms">N. stanze</label>
+                        <input type="number" class="rounded-pill px-2" min="1" max="8" v-model="nRooms" @keyup="getApartmentList" @click="getApartmentList">
+                    </span>
 
                     <!-- filtro numero minimo letti -->
-                    <label for="beds">N. letti</label>
-                    <input type="number" class="rounded-pill px-2" min="1" max="8" v-model="nBeds" @keyup="getApartmentList" @click="getApartmentList">
+                    <span class="d-flex align-items-center">
+                        <label for="beds">N. letti</label>
+                        <input type="number" class="rounded-pill px-2" min="1" max="8" v-model="nBeds" @keyup="getApartmentList" @click="getApartmentList">
+                    </span>
 
                     <!-- <label for="beds">Servizi</label>
                     <span v-for="service, i in servicesList" :key="`service-${i}`">
@@ -25,9 +29,13 @@
                     </div> -->
 
                     <!-- filtro raggio di ricerca -->
-                    <label for="radius">Raggio di Ricerca</label>
-                    <input type="range" v-model="radius" min="0" max="20000" @click.left="getApartmentList">
-                    {{ radius /1000 }} Km
+                    <span class="d-flex align-items-center">
+                        <label for="radius">Raggio di Ricerca</label>
+                        <input type="range" v-model="radius" min="0" max="20000" step="100" @click.left="getApartmentList">
+                        <span id="km_tag">
+                            {{ parseFloat(radius/1000).toFixed(1) }} Km
+                        </span>
+                    </span>
                 </div>
             </div>
             <div>
@@ -83,10 +91,10 @@
         </div>
 
         <!-- mappa risultati -->
-        <div class="col-6">
+        <div class="col-6 d-none d-md-block">
             <SearchInMap class="sticky-top" ref="map" :center="[this.lng, this.lat]" :apartmentsFound="this.apartmentsCoordinates"/>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -181,8 +189,19 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '../../sass/variables';
+    #km_tag {
+        margin-left: 8px;
+        width: 60px
+    }
+
+    input {
+        border: 1px solid black
+    }
+
     label {
         margin: 0;
+        padding-bottom: 2px;
+        margin-right: 8px;
     }
 
     .sponsored {
@@ -193,22 +212,5 @@ export default {
     width: 300px;
     height: 200px;
     object-fit: contain;
-    }   
-
-    @media screen and (max-width: 800px){
-        .map{
-            display: none;
-        }
-
-        .apartment{
-            width: 100%;
-        }
-
-        .photo{
-            display: none;
-        }
-    }
-    .detail{
-        width: 400px;
     }
 </style>
