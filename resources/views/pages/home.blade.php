@@ -47,7 +47,7 @@
         @endforeach
     </section>
 
-    <section class="text-center my-5 pt-5">
+    <section class="text-center py-5">
         <h1 class="my-3 text-orange"><b>Scopri BoolBnb</b> </h1>
         <span class="mb-3">Ti diamo il benvenuto nel sito viaggi di Boolbnb. <br>Ovunque tu vada, Boolbnb ha l'alloggio per te. </span>
         <h3 >Cosa rende speciale Boolbnb</h3>
