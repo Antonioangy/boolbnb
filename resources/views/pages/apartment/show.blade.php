@@ -22,12 +22,15 @@
                 @if ($apartment->images) 
                     <img class="img-fluid img-thumbnail rounded" src="{{asset('storage/assets/'. $apartment->images)}}" alt="{{$apartment -> title}}">
                 @endif
-                
+
                 {{-- info generali --}}
                 <div class="border-bottom py-3">
                     <h3>
                         Informazioni generali
                     </h3>
+                    <div class="py-2">
+                        <b>Host: </b>{{$apartmentUser -> email}}
+                    </div>
                     <div class="d-flex align-items-center">
                         <span class="d-flex align-items-center mr-3">
                             <i class="fa-solid fa-house mr-1"></i>

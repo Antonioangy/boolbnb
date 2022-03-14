@@ -6,6 +6,7 @@ use App\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\User;
 use App\Service;
 use App\Message;
 use App\View;
@@ -21,7 +22,7 @@ class ApartmentController extends Controller
         $services = Service::all();
         $user = Auth::user();
 
-        
+        $apartmentUser = User::findOrFail($apartment -> user_id);
         $views = View::where('apartment_id', $id ) -> count();
 
         $newView = View::make();
@@ -29,7 +30,7 @@ class ApartmentController extends Controller
         $newView -> save();
         
 
-        return view('pages.apartment.show', compact('apartment', 'user', 'services', 'views'));
+        return view('pages.apartment.show', compact('apartment', 'user', 'services', 'views', 'apartmentUser'));
     }
 
     public function create(){
