@@ -52,29 +52,29 @@
                     <div class='form-row'>
                         <div class='form-group required'>
                             <label class='control-label text-blue'>Nome e Cognome</label> <input
-                                class='form-control' size='4' type='text' value="test">
+                                class='form-control' size='4' type='text'>
                         </div>
                     </div>
 
                     <div class='form-row'>
                         <div class='form-group card required'>
                             <label class='control-label text-blue'>Numero della Carta</label>
-                            <input autocomplete='off' class='form-control card-number' size='20' type='text' value="4242 4242 4242 4242">
+                            <input autocomplete='off' class='form-control card-number' size='20' type='text'>
                         </div>
                     </div>
 
                     <div class='form-row'>
                         <div class='form-group cvc required'>
                             <label class='control-label text-blue'>CVV</label>
-                            <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text' value="123">
+                            <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
                         </div>
-                        <div class='form-group expiration required'>
+                        <div class='form-group expiration required mx-2'>
                             <label class='control-label text-blue'>Mese di scadenza</label>
-                            <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text' value="02">
+                            <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
                         </div>
                         <div class='form-group expiration required'>
                             <label class='control-label text-blue'>Anno di scadenza</label>
-                            <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text' value="2024">
+                            <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
                         </div>
                     </div>
 
