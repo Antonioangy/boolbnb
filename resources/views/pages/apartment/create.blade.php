@@ -16,25 +16,28 @@
         @csrf
 
         
-        <div class="insert-container container-xl bg-darkBlue d-flex flex-column p-5 rounded">
+        <div class="insert-container container-xl bg-darkBlue d-flex flex-column justify-content-between p-5 rounded">
             <h1 class="text-white">Inserisci nuovo appartamento</h1>
             
-            <input type="text" name="title" placeholder="Titolo" class="p-2 h5"> <br>
+            <input type="text" name="title" placeholder="Titolo" class="p-2 h5"> 
             
-            <input type="text" name="description" placeholder="Descrizione" class="p-2 h5"><br>
-            
-            <input type="number" name="rooms" placeholder="Stanze" min="0" class="p-2 h5"><br>
+            <textarea name="description" placeholder="Descrizione" class="p-2 h5" cols="30" rows="10"></textarea>
+
+            <div class="d-flex justify-content-between">
+
+                <input type="number" name="rooms" placeholder="Stanze" min="0" class="p-2 h5">
+        
+                <input type="number" name="beds" placeholder="Letti" min="0" class="p-2 h5">
+                
+                <input type="number" name="bathrooms" placeholder="Bagni" min="0" class="p-2 h5">
+                
+                <input type="number" name="sq" placeholder="Metri Quadri" min="0" class="p-2 h5">
+            </div>
     
-            <input type="number" name="beds" placeholder="Letti" min="0" class="p-2 h5"><br>
             
-            <input type="number" name="bathrooms" placeholder="Bagni" min="0" class="p-2 h5"><br>
-            
-            <input type="number" name="sq" placeholder="Metri Quadri" min="0" class="p-2 h5"><br>
-    
-            <input type="file" name="images" class="text-white"><br>
-    
             <address-geocode ></address-geocode>
             
+            <input type="file" name="images" class=" text-white">
         </div>
 
         <div class="service-container container-xl d-flex flex-column p-5 rounded">
