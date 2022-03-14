@@ -1,5 +1,5 @@
 <template>
-    <div id="searchbox">
+    <div class="d-flex flex-column">
         <input name="address" type="text" placeholder="Cerca Indirizzo" class="p-2 h5" v-model="addressQuery" @keyup="geocoding">
         
         <input name="latitude" type="text" class="d-none" v-model="lat">
