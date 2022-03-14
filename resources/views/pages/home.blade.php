@@ -34,6 +34,7 @@
                         <h5 class="title_sponsored">
                             {{ $sponsoredApartment -> title }}
                         </h5>
+                        <span class="subtitle"><i class="fa-solid fa-location-dot text-orange"></i> {{ $sponsoredApartment -> address }}</span>
                         @if ($sponsoredApartment->images)  
                             <img src="{{ asset('storage/assets/'.$sponsoredApartment -> images) }}" class="card-img-top" alt="apartment">
                         @endif
